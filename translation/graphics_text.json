@@ -1,0 +1,1509 @@
+{
+ "schema": "hotgmck-graphics-text/1",
+ "note": "Graphics-text wording. template = sprite template address in main ROM (dword0 size, dword1 col|tnum).",
+ "entries": [
+  {
+   "id": "G080B10",
+   "template": "080B10",
+   "style": "bubble",
+   "source": "テンパイ!",
+   "ko": "텐파이!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B20",
+   "template": "080B20",
+   "style": "bubble",
+   "source": "ノーテン。",
+   "ko": "노텐.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B30",
+   "template": "080B30",
+   "style": "bubble",
+   "source": "カンね!",
+   "ko": "깡이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B40",
+   "template": "080B40",
+   "style": "bubble",
+   "source": "ポンね!",
+   "ko": "퐁이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B50",
+   "template": "080B50",
+   "style": "bubble",
+   "source": "チーだもんね!",
+   "ko": "치거든!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B60",
+   "template": "080B60",
+   "style": "bubble",
+   "source": "必殺、\n女子高生リーチ!",
+   "ko": "필살,\n여고생 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B70",
+   "template": "080B70",
+   "style": "bubble",
+   "source": "ツモぉ!",
+   "ko": "쯔모오!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B80",
+   "template": "080B80",
+   "style": "bubble",
+   "source": "ロ～ン!",
+   "ko": "로오온!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080B90",
+   "template": "080B90",
+   "style": "bubble",
+   "source": "カン!",
+   "ko": "깡!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BA0",
+   "template": "080BA0",
+   "style": "bubble",
+   "source": "ポン!",
+   "ko": "퐁!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BB0",
+   "template": "080BB0",
+   "style": "bubble",
+   "source": "チー!",
+   "ko": "치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BC0",
+   "template": "080BC0",
+   "style": "bubble",
+   "source": "イェーイ!\nアメリカン・リーチ!",
+   "ko": "예이!\n아메리칸 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BD0",
+   "template": "080BD0",
+   "style": "bubble",
+   "source": "ツモォ!",
+   "ko": "쯔모오!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BE0",
+   "template": "080BE0",
+   "style": "bubble",
+   "source": "マージャン!",
+   "ko": "마작!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080BF0",
+   "template": "080BF0",
+   "style": "bubble",
+   "source": "カンだよ!",
+   "ko": "깡이야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C00",
+   "template": "080C00",
+   "style": "bubble",
+   "source": "ポンだよ!",
+   "ko": "퐁이야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C10",
+   "template": "080C10",
+   "style": "bubble",
+   "source": "チーだよ!",
+   "ko": "치야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C20",
+   "template": "080C20",
+   "style": "bubble",
+   "source": "いっくよお、\n子供リーチ!",
+   "ko": "간다아,\n어린이 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C30",
+   "template": "080C30",
+   "style": "bubble",
+   "source": "ツモぉ!",
+   "ko": "쯔모오!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C40",
+   "template": "080C40",
+   "style": "bubble",
+   "source": "ロンだよ!",
+   "ko": "론이야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C50",
+   "template": "080C50",
+   "style": "bubble",
+   "source": "カンよ!",
+   "ko": "깡이에요!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C60",
+   "template": "080C60",
+   "style": "bubble",
+   "source": "ポンよ!",
+   "ko": "퐁이에요!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C70",
+   "template": "080C70",
+   "style": "bubble",
+   "source": "チーよ!",
+   "ko": "치예요!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C80",
+   "template": "080C80",
+   "style": "bubble",
+   "source": "勝負よ!\nOLリーチ!",
+   "ko": "승부예요!\nOL 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080C90",
+   "template": "080C90",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CA0",
+   "template": "080CA0",
+   "style": "bubble",
+   "source": "ロンッ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CB0",
+   "template": "080CB0",
+   "style": "bubble",
+   "source": "カン・護婦!",
+   "ko": "깡호사!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CC0",
+   "template": "080CC0",
+   "style": "bubble",
+   "source": "ポンだよ!",
+   "ko": "퐁이야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CD0",
+   "template": "080CD0",
+   "style": "bubble",
+   "source": "チーだよ!",
+   "ko": "치야!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CE0",
+   "template": "080CE0",
+   "style": "bubble",
+   "source": "受けとめて!\n白衣のリーチ!",
+   "ko": "받아 줘!\n백의의 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080CF0",
+   "template": "080CF0",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D00",
+   "template": "080D00",
+   "style": "bubble",
+   "source": "ロンっ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D10",
+   "template": "080D10",
+   "style": "bubble",
+   "source": "カンね!",
+   "ko": "깡이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D20",
+   "template": "080D20",
+   "style": "bubble",
+   "source": "ポンね!",
+   "ko": "퐁이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D30",
+   "template": "080D30",
+   "style": "bubble",
+   "source": "チーね!",
+   "ko": "치네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D40",
+   "template": "080D40",
+   "style": "bubble",
+   "source": "ほら、\nリーチしちゃうぞ!",
+   "ko": "자,\n리치 걸어 버린다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D50",
+   "template": "080D50",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D60",
+   "template": "080D60",
+   "style": "bubble",
+   "source": "ロンっ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D70",
+   "template": "080D70",
+   "style": "bubble",
+   "source": "カン!",
+   "ko": "깡!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D80",
+   "template": "080D80",
+   "style": "bubble",
+   "source": "ポン!",
+   "ko": "퐁!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080D90",
+   "template": "080D90",
+   "style": "bubble",
+   "source": "チー!",
+   "ko": "치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DA0",
+   "template": "080DA0",
+   "style": "bubble",
+   "source": "くらえ、\nサディスティック・リーチ!",
+   "ko": "받아라,\n새디스틱 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DB0",
+   "template": "080DB0",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DC0",
+   "template": "080DC0",
+   "style": "bubble",
+   "source": "ロンっ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DD0",
+   "template": "080DD0",
+   "style": "bubble",
+   "source": "カンじゃ!",
+   "ko": "깡이로다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DE0",
+   "template": "080DE0",
+   "style": "bubble",
+   "source": "ポンじゃ!",
+   "ko": "퐁이로다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080DF0",
+   "template": "080DF0",
+   "style": "bubble",
+   "source": "チーじゃ!",
+   "ko": "치로다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E00",
+   "template": "080E00",
+   "style": "bubble",
+   "source": "デビル・リーチ!!",
+   "ko": "데빌 리치!!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E10",
+   "template": "080E10",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E20",
+   "template": "080E20",
+   "style": "bubble",
+   "source": "ロンっ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E30",
+   "template": "080E30",
+   "style": "bubble",
+   "source": "カン!",
+   "ko": "깡!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E40",
+   "template": "080E40",
+   "style": "bubble",
+   "source": "ポン!",
+   "ko": "퐁!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E50",
+   "template": "080E50",
+   "style": "bubble",
+   "source": "チー!",
+   "ko": "치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E60",
+   "template": "080E60",
+   "style": "bubble",
+   "source": "チャンスね!\nゴッド・リーチ!",
+   "ko": "찬스네!\n갓 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E70",
+   "template": "080E70",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E80",
+   "template": "080E80",
+   "style": "bubble",
+   "source": "ロンっ!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080E90",
+   "template": "080E90",
+   "style": "bubble",
+   "source": "カンね!",
+   "ko": "깡이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080EA0",
+   "template": "080EA0",
+   "style": "bubble",
+   "source": "ポンね!",
+   "ko": "퐁이네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080EB0",
+   "template": "080EB0",
+   "style": "bubble",
+   "source": "チーね!",
+   "ko": "치네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080EC0",
+   "template": "080EC0",
+   "style": "bubble",
+   "source": "ときめき、\nマジカル・リーチ!",
+   "ko": "두근두근,\n매지컬 리치!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080ED0",
+   "template": "080ED0",
+   "style": "bubble",
+   "source": "ツモだもんね!",
+   "ko": "쯔모라구!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080EE0",
+   "template": "080EE0",
+   "style": "bubble",
+   "source": "ロン!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080EF0",
+   "template": "080EF0",
+   "style": "bubble",
+   "source": "カンでゴザる!",
+   "ko": "깡이로소이다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080F00",
+   "template": "080F00",
+   "style": "bubble",
+   "source": "ポンでゴザる!",
+   "ko": "퐁이로소이다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080F10",
+   "template": "080F10",
+   "style": "bubble",
+   "source": "チーでゴザる!",
+   "ko": "치로소이다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080F20",
+   "template": "080F20",
+   "style": "bubble",
+   "source": "サムライ・リーチ!!",
+   "ko": "사무라이 리치!!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080F30",
+   "template": "080F30",
+   "style": "bubble",
+   "source": "ツモでゴザるよ!",
+   "ko": "쯔모로소이다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G080F40",
+   "template": "080F40",
+   "style": "bubble",
+   "source": "ロンでゴザるよ!",
+   "ko": "론이로소이다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+  },
+  {
+   "id": "G0808A0",
+   "template": "0808A0",
+   "style": "bubble",
+   "source": "カンっス!",
+   "ko": "깡임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G0808D0",
+   "template": "0808D0",
+   "style": "bubble",
+   "source": "ポンっス!",
+   "ko": "퐁임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080900",
+   "template": "080900",
+   "style": "bubble",
+   "source": "チーっス!",
+   "ko": "치임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080930",
+   "template": "080930",
+   "style": "bubble",
+   "source": "リーチ行くっス!",
+   "ko": "리치 가겠슴다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080948",
+   "template": "080948",
+   "style": "bubble",
+   "source": "ツモっス!",
+   "ko": "쯔모임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080978",
+   "template": "080978",
+   "style": "bubble",
+   "source": "ロンっス!",
+   "ko": "론임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G0809A8",
+   "template": "0809A8",
+   "style": "bubble",
+   "source": "テンパイ!",
+   "ko": "텐파이!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G0809D8",
+   "template": "0809D8",
+   "style": "bubble",
+   "source": "ノーテン。",
+   "ko": "노텐.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080A08",
+   "template": "080A08",
+   "style": "bubble",
+   "source": "流局っス!",
+   "ko": "유국임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080A50",
+   "template": "080A50",
+   "style": "bubble",
+   "source": "カン!",
+   "ko": "깡!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G080A70",
+   "template": "080A70",
+   "style": "bubble",
+   "source": "ポン!",
+   "ko": "퐁!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; dog bubble piece (composite table 0x808A0)"
+  },
+  {
+   "id": "G0815F8",
+   "template": "0815F8",
+   "style": "outline",
+   "source": "おやびん、\nくやしいっス!",
+   "ko": "두목,\n분함다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081600",
+   "template": "081600",
+   "style": "outline",
+   "source": "おやびんの負けっス!\nムチャ残念っス!",
+   "ko": "두목 패배임다!\n엄청 아쉬움다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081608",
+   "template": "081608",
+   "style": "outline",
+   "source": "このあとも、\n素敵なおしおきが\n待ってるっス!",
+   "ko": "이 뒤에도\n멋진 벌칙이\n기다리고 있슴다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081610",
+   "template": "081610",
+   "style": "outline",
+   "source": "このあとも、\n素敵なお姉様が\n待ってるっス!",
+   "ko": "이 뒤에도\n멋진 누님들이\n기다리고 있슴다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081618",
+   "template": "081618",
+   "style": "outline",
+   "source": "ここでやめたら\n男がすたるっスよ!",
+   "ko": "여기서 관두면\n남자 망신임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081620",
+   "template": "081620",
+   "style": "outline",
+   "source": "おやび～ん!",
+   "ko": "두모～옥!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081628",
+   "template": "081628",
+   "style": "outline_big",
+   "source": "おやび～ん!!",
+   "ko": "두모～옥!!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081630",
+   "template": "081630",
+   "style": "outline",
+   "source": "あっはっは!\n女子高生に負けてるし～!",
+   "ko": "아하하하!\n여고생한테 지다니～!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081638",
+   "template": "081638+081640",
+   "style": "outline",
+   "source": "もう、おしまい? あんたって\nホンットに根性ないわね!",
+   "ko": "벌써 끝이야?\n너 진짜 근성 하나도 없네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081648",
+   "template": "081648+081650",
+   "style": "outline",
+   "source": "ははは!\nやっぱり日本人は麻雀弱いな!",
+   "ko": "하하하!\n역시 일본인은 마작 약해!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081658",
+   "template": "081658",
+   "style": "outline",
+   "source": "どうした?\nもう諦めるのか、日本人!",
+   "ko": "왜 그래?\n벌써 포기냐,일본인!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081660",
+   "template": "081660",
+   "style": "outline",
+   "source": "あっはっは!\n正義は勝つのだ!",
+   "ko": "아하하!\n정의는 이긴다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081668",
+   "template": "081668",
+   "style": "outline",
+   "source": "やめちゃうの?\nねぇ、もっと遊ぼうよ!",
+   "ko": "그만둘래?\n있잖아,더 놀자!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081670",
+   "template": "081670",
+   "style": "outline",
+   "source": "勝負にすら、\nならなかったわね。",
+   "ko": "승부조차\n안 됐네요.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081678",
+   "template": "081678+081680",
+   "style": "outline",
+   "source": "あら、もうおしまい? 最低ね。",
+   "ko": "어머,벌써 끝? 한심해.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081688",
+   "template": "081688",
+   "style": "outline",
+   "source": "勝負は時の運。\nツイてなかったね!",
+   "ko": "승부는 운!\n운이 없었네.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081690",
+   "template": "081690",
+   "style": "outline",
+   "source": "もう、やめちゃうの?\nつまんないなぁ!",
+   "ko": "벌써 그만두게?\n재미없다～!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081698",
+   "template": "081698",
+   "style": "outline",
+   "source": "あっはっは!\nあたしに負けますか。",
+   "ko": "아하하하!\n나한테 지다니.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816A0",
+   "template": "0816A0",
+   "style": "outline",
+   "source": "もう降参?\nキミ根性ないね!",
+   "ko": "항복이야?\n너 근성 없네!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816A8",
+   "template": "0816A8+0816B0",
+   "style": "outline",
+   "source": "人の世に、とこしえの闇を‥‥",
+   "ko": "인간계에,영원한 어둠을‥‥",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816B8",
+   "template": "0816B8+0816C0",
+   "style": "outline",
+   "source": "お前には止められまい。あと\n一歩のところ、惜しかったな!",
+   "ko": "넌 날 못 막는다.\n한 걸음 차이로,아깝게 됐군!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816C8",
+   "template": "0816C8",
+   "style": "outline",
+   "source": "ワラワに勝とうなどと、\n10万年は早かったのう!",
+   "ko": "짐을 이기려 하다니,\n10만 년은 일렀도다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816D0",
+   "template": "0816D0",
+   "style": "outline",
+   "source": "もう力尽きたか?\nそれがヒトの限界よの!",
+   "ko": "벌써 지쳤느냐?\n인간의 한계로구나!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816D8",
+   "template": "0816D8",
+   "style": "outline",
+   "source": "ははは! 伊達に巫女は\nやってないわよ!",
+   "ko": "하하하!괜히 무녀를\n하는 게 아냐!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816E0",
+   "template": "0816E0",
+   "style": "outline",
+   "source": "もう、おしまい?\n体力ないわね～、キミ。",
+   "ko": "벌써 끝?\n체력 없네～,너!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816E8",
+   "template": "0816E8",
+   "style": "outline",
+   "source": "強い!強すぎるわ、私って!",
+   "ko": "강해!너무 세잖아,나!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G0816F0",
+   "template": "0816F0+0816F8",
+   "style": "outline",
+   "source": "もう、おしまい?\nお楽しみは、これからなのに。",
+   "ko": "벌써 끝?\n재밌는 건 이제부터인데.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081700",
+   "template": "081700",
+   "style": "outline",
+   "source": "ヘイ、カモンカモン!\nもっと麻雀で、\n漢の心を通わすでゴザるよ!",
+   "ko": "헤이,컴온,컴온!\n더 마작으로\n사나이 마음을 나누세!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G081708",
+   "template": "081708+081710",
+   "style": "outline",
+   "source": "もし勝てたら、\n拙者を好きにしてもいいでゴザるよ!\nレッツ スパーク!!",
+   "ko": "만약 이기면\n소인을 마음대로 해도 좋소이다!\n렛츠,스파크!!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+  },
+  {
+   "id": "G080810",
+   "template": "080810",
+   "style": "serif_white",
+   "source": "東",
+   "ko": "동",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080818",
+   "template": "080818",
+   "style": "serif_white",
+   "source": "場",
+   "ko": "장",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080820",
+   "template": "080820",
+   "style": "serif_white",
+   "source": "南",
+   "ko": "남",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080830",
+   "template": "080830",
+   "style": "serif_white",
+   "source": "西",
+   "ko": "서",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080840",
+   "template": "080840",
+   "style": "serif_white",
+   "source": "北",
+   "ko": "북",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080850",
+   "template": "080850",
+   "style": "serif_white",
+   "source": "満貫",
+   "ko": "만관",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080858",
+   "template": "080858",
+   "style": "serif_white",
+   "source": "ハネ満",
+   "ko": "하네만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080860",
+   "template": "080860",
+   "style": "serif_white",
+   "source": "倍満",
+   "ko": "배만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080868",
+   "template": "080868",
+   "style": "serif_white",
+   "source": "三倍満",
+   "ko": "삼배만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080870",
+   "template": "080870",
+   "style": "serif_white",
+   "source": "役満",
+   "ko": "역만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080878",
+   "template": "080878",
+   "style": "serif_white",
+   "source": "ダブル役満",
+   "ko": "더블 역만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080880",
+   "template": "080880",
+   "style": "serif_white",
+   "source": "トリプル役満",
+   "ko": "트리플 역만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G080888",
+   "template": "080888",
+   "style": "serif_white",
+   "source": "数え役満",
+   "ko": "누적 역만",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G081380",
+   "template": "081380+081388",
+   "style": "gothic_white",
+   "source": "おしおきタイムっス!",
+   "ko": "벌칙 타임임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G081390",
+   "template": "081390",
+   "style": "gothic_white",
+   "source": "着せ替えタイムっス!",
+   "ko": "옷 갈아입히기 타임임다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G0806B8",
+   "template": "0806B8",
+   "style": "red_small",
+   "source": "オートツモ",
+   "ko": "자동쯔모",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G0885D0",
+   "template": "0885D0",
+   "style": "glyph",
+   "source": "点",
+   "ko": "점",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G0885D8",
+   "template": "0885D8",
+   "style": "glyph",
+   "source": "符",
+   "ko": "부",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G0885E0",
+   "template": "0885E0",
+   "style": "glyph",
+   "source": "役",
+   "ko": "역",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G0885E8",
+   "template": "0885E8",
+   "style": "glyph",
+   "source": "翻",
+   "ko": "판",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G088600",
+   "template": "088600",
+   "style": "glyph",
+   "source": "雀P",
+   "ko": "작P",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G088608",
+   "template": "088608",
+   "style": "glyph",
+   "source": "雀",
+   "ko": "작",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28"
+  },
+  {
+   "id": "G_MONITOR",
+   "template": "S:00884:16x2:00",
+   "style": "mono_white",
+   "source": "これらの円が楕円に見える場合は、\nモニタの調節をしてください。",
+   "ko": "이 원들이 타원으로 보이면,\n모니터를 조절해 주세요.",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; boot monitor-test screen, sprite 0x884 16x2 (no template)"
+  },
+  {
+   "id": "G081D08",
+   "template": "081D08",
+   "style": "tile_label",
+   "source": "ツ\nモ",
+   "ko": "쯔\n모",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; tsumo marker on the drawn tile (N slot)"
+  },
+  {
+   "id": "G084C08",
+   "template": "084C08",
+   "style": "brush",
+   "source": "ムーンサルトプレス",
+   "ko": "문설트 프레스",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C10",
+   "template": "084C10",
+   "style": "brush",
+   "source": "S・T・F",
+   "ko": "S・T・F",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C18",
+   "template": "084C18",
+   "style": "brush",
+   "source": "ジャイアントスイング",
+   "ko": "자이언트 스윙",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C20",
+   "template": "084C20+084C28",
+   "style": "brush",
+   "source": "カカト落とし",
+   "ko": "뒤꿈치 찍기",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C30",
+   "template": "084C30+084C38",
+   "style": "brush",
+   "source": "バックブリーカー",
+   "ko": "백브리커",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C40",
+   "template": "084C40",
+   "style": "brush",
+   "source": "火炎放射",
+   "ko": "화염 방사",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C48",
+   "template": "084C48+084C50",
+   "style": "brush",
+   "source": "辱め固め",
+   "ko": "굴욕 굳히기",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C58",
+   "template": "084C58+084C60",
+   "style": "brush",
+   "source": "垂直落下式ブレンバスター",
+   "ko": "수직 낙하식 브레인버스터",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C68",
+   "template": "084C68+084C70",
+   "style": "brush",
+   "source": "喉輪落とし",
+   "ko": "초크 슬램",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C78",
+   "template": "084C78",
+   "style": "brush",
+   "source": "目からビーム",
+   "ko": "눈에서 빔",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C88",
+   "template": "084C88+084C90",
+   "style": "brush",
+   "source": "ジャパニーズオーシャンサイクロン",
+   "ko": "재패니즈 오션 사이클론",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G084C98",
+   "template": "084C98",
+   "style": "brush",
+   "source": "銃殺",
+   "ko": "총살",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851D0",
+   "template": "0851D0",
+   "style": "outline",
+   "source": "コンティニュー\nするんだ!!",
+   "ko": "컨티뉴\n하는 거다!!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851D8",
+   "template": "0851D8",
+   "style": "outline",
+   "source": "俺にもう一度\nチャンスを!",
+   "ko": "나에게 한 번 더\n기회를!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851E0",
+   "template": "0851E0",
+   "style": "outline",
+   "source": "俺はまだ\n戦いたい!",
+   "ko": "난 아직\n싸우고 싶다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851E8",
+   "template": "0851E8",
+   "style": "outline",
+   "source": "お願いだ!\n見捨てないで!",
+   "ko": "부탁이야!\n버리지 마!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851F0",
+   "template": "0851F0",
+   "style": "outline",
+   "source": "この通りだ!",
+   "ko": "이렇게 빈다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G0851F8",
+   "template": "0851F8",
+   "style": "outline",
+   "source": "ゲーム\nオーバーだ!",
+   "ko": "게임\n오버다!",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
+  },
+  {
+   "id": "G081778",
+   "template": "081778",
+   "style": "credit",
+   "source": "制作 丹羽 潤一\n監督 中村 晋介\n企画/脚本\n　山田 啓史\nデザイン/演出\n　小川 兵衛",
+   "ko": "제작  니와 준이치\n감독  나카무라 신스케\n기획/각본\n    야마다 케이시\n디자인/연출\n    오가와 효에",
+   "state": "needs_human_review",
+   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
+  },
+  {
+   "id": "G0817A0",
+   "template": "0817A0",
+   "style": "credit",
+   "source": "プログラム\n　斉藤 詩織\n　兄筋 太郎\n　吉田 和史\nサウンド\n　泉谷 雅樹\n　谷岡 久美",
+   "ko": "프로그램\n    사이토 시오리\n    아니스지 타로\n    요시다 카즈시\n사운드\n    이즈미야 마사키\n    타니오카 쿠미",
+   "state": "needs_human_review",
+   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
+  },
+  {
+   "id": "G0817A8",
+   "template": "0817A8",
+   "style": "credit",
+   "source": "キャラクターデザイン\n　司 淳\nゲストキャラクターデザイン\n　寺田 克也\n原稿おとした人\n　中村 博文",
+   "ko": "캐릭터 디자인\n    츠카사 준\n게스트 캐릭터 디자인\n    테라다 카츠야\n원고 펑크 낸 사람\n    나카무라 히로후미",
+   "state": "needs_human_review",
+   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
+  },
+  {
+   "id": "G0817C0",
+   "template": "0817C0",
+   "style": "credit",
+   "source": "制作/著作\n1997 彩京",
+   "ko": "제작/저작\n1997 사이쿄",
+   "state": "needs_human_review",
+   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
+  },
+  {
+   "id": "G0807C8",
+   "template": "0807C8",
+   "style": "label_small",
+   "source": "スタート",
+   "ko": "스타트",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807D0",
+   "template": "0807D0",
+   "style": "label_small",
+   "source": "カン",
+   "ko": "깡",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807D8",
+   "template": "0807D8",
+   "style": "label_small",
+   "source": "ポン",
+   "ko": "퐁",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807E0",
+   "template": "0807E0",
+   "style": "label_small",
+   "source": "チー",
+   "ko": "치",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807E8",
+   "template": "0807E8",
+   "style": "label_small",
+   "source": "リーチ",
+   "ko": "리치",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807F0",
+   "template": "0807F0",
+   "style": "label_small",
+   "source": "ロン",
+   "ko": "론",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G0807F8",
+   "template": "0807F8",
+   "style": "label_small",
+   "source": "コイン",
+   "ko": "코인",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G080800",
+   "template": "080800",
+   "style": "label_small",
+   "source": "サービス",
+   "ko": "서비스",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G080808",
+   "template": "080808",
+   "style": "label_small",
+   "source": "テスト",
+   "ko": "테스트",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; input-test button label (palette-free two-tone)"
+  },
+  {
+   "id": "G_WIND_00702",
+   "template": "S:00702:1x1:00",
+   "style": "wind_small",
+   "source": "東",
+   "ko": "동",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; seat wind in the score panel"
+  },
+  {
+   "id": "G_WIND_00703",
+   "template": "S:00703:1x1:00",
+   "style": "wind_small",
+   "source": "南",
+   "ko": "남",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; seat wind in the score panel"
+  },
+  {
+   "id": "G_WIND_00704",
+   "template": "S:00704:1x1:00",
+   "style": "wind_small",
+   "source": "西",
+   "ko": "서",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; seat wind in the score panel"
+  },
+  {
+   "id": "G_WIND_00705",
+   "template": "S:00705:1x1:00",
+   "style": "wind_small",
+   "source": "北",
+   "ko": "북",
+   "state": "needs_review",
+   "note": "agent draft 2026-09-28; seat wind in the score panel"
+  }
+ ]
+}
