@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Taisen Hot Gimmick (hotgmck) cheats for the MAME cheat plugin. Values are hexadecimal (MAME expression syntax). -->
+<mamecheat version="1">
+  <cheat desc="플레이어 점수 30000 고정 (확인됨)">
+    <comment>RAM 0x0601BA5C = player points. Keeps the game going after lost hands.</comment>
+    <script state="run">
+      <action>maincpu.pd@0601BA5C=7530</action>
+    </script>
+  </cheat>
+  <cheat desc="상대 점수 100으로 (한 번 적용, 주소 확인됨 / 효과 미확인)">
+    <comment>RAM 0x0601BA58 = opponent points. Set once; winning the next hand should clear the stage.</comment>
+    <script state="on">
+      <action>maincpu.pd@0601BA58=64</action>
+    </script>
+  </cheat>
+  <cheat desc="작파워 9900 고정 (주소 후보, 미확인)">
+    <comment>RAM 0x0601BA88 rises with the in-game JanPOW +400 popups; not confirmed on the skill menu.</comment>
+    <script state="run">
+      <action>maincpu.pd@0601BA88=26AC</action>
+    </script>
+  </cheat>
+</mamecheat>
