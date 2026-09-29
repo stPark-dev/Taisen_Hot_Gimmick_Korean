@@ -10,8 +10,8 @@ run_test/
 __pycache__/
 *.pyc
 # 참고용 이미지 (게임 자료, 사용자 원본)
-poster.png
-logo_title.png
-control_panel.png
+/poster.png
+/logo_title.png
+/control_panel.png
 *.jpeg
 roms폴더에*.txt
