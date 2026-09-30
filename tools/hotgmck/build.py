@@ -104,7 +104,7 @@ TEXT_STYLES = {
                     "sizes": (13, 12, 11, 10, 9, 8), "align": "center", "margin": 0},
     "tile_label": {"kind": "box", "col": 0x20, "palette_rom": 0x66550, "indices": "used", "fill": 78, "inset": 0,
                    "font": "/usr/share/fonts/truetype/nanum/NanumGothicBold.ttf", "sizes": (14, 13, 12, 11),
-                   "color": (247, 247, 243), "line_gap": 0, "antialias": False},
+                   "color": (247, 247, 243), "line_gap": 2, "antialias": True},
     "mono_white": {"kind": "outline", "col": 0x00, "fixed_palette": {65: (255, 255, 255)}, "indices": (65,), "transparent": 0,
                    "font": TEXT_FONT, "sizes": tuple(range(16, 9, -1)), "color": (255, 255, 255), "outline": None,
                    "outline_px": 0, "line_gap": 1, "align": "center", "margin": 1},
