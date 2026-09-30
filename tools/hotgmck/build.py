@@ -62,6 +62,14 @@ GRAPHICS = [
      "parts": ((0x6C2, 6, 1, 16, 0), (0x6C8, 9, 2, 0, 16)), **WHITE_ON_BLACK},
     {"id": "insert_coin_title", "type": "text", "lines": ["코인을 넣어 주세요!"], "size": 17, "line_gap": 0,
      "parts": ((0x6DA, 10, 2, 0, 0),), **WHITE_ON_BLACK},
+    {"id": "jan_pow", "type": "pow_label",
+     "sheets": tuple((t, 3, 1) for t in (0x64DA, 0x64DD, 0x64E0, 0x64E3, 0x64E9, 0x64EC, 0x64EF, 0x64F5, 0x64F8, 0x64FB,
+                                         0x6501, 0x6504)),
+     "palette_rom": 0x66A90, "indices": (113, 114, 115, 116, 117, 119, 127), "lines": ["작파워"]},   # 雀pow gauge (templates 83ED0-83F40)
+    {"id": "tile_fuyo", "type": "photo_label", "sheet": (0x4D60, 2, 2), "palette_rom": 0x66550, "band": (1, 0, 19, 25),
+     "lines": ["버", "림"], "detect": "red", "fill": (140, 16, 32), "outline": None, "outline_px": 0,
+     "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf", "antialias": True,
+     "sizes": (13, 12, 11, 10)},   # 不要 marker on a hand tile (template 81D00): user decision 2026-09-30
 ]
 
 
@@ -384,14 +392,19 @@ def photo_label_writes(plan, files, image, spec) -> dict:
     rgb = [[pal[v] for v in r] for r in rows]
     x0, y0, x1, y1 = spec["band"]
     lum = lambda c: 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
-    core = {(x, y) for y in range(y0, y1 + 1) for x in range(x0, x1 + 1)
-            if (lum(rgb[y][x]) > 200 and max(rgb[y][x]) - min(rgb[y][x]) < 40) or lum(rgb[y][x]) < 45}
+    band = [(x, y) for y in range(y0, y1 + 1) for x in range(x0, x1 + 1)]
+    if spec.get("detect") == "red":     # red glyph on a tile face (e.g. 不要 marker)
+        core = {(x, y) for x, y in band if rgb[y][x][0] - max(rgb[y][x][1], rgb[y][x][2]) > 50}
+    else:
+        core = {(x, y) for x, y in band
+                if (lum(rgb[y][x]) > 200 and max(rgb[y][x]) - min(rgb[y][x]) < 40) or lum(rgb[y][x]) < 45}
     mask = {(x + dx, y + dy) for x, y in core for dx in (-1, 0, 1) for dy in (-1, 0, 1)
             if x0 <= x + dx <= x1 and y0 <= y + dy <= y1}
     rgb = graphics.inpaint(rgb, mask)
     bw, bh = x1 - x0 + 1, y1 - y0 + 1
-    art = fit_text(spec["lines"], TEXT_FONT, tuple(range(30, 11, -1)), bw, bh, (255, 255, 255), 0,
-                   (0, 0, 0), 2, False)
+    art = fit_text(spec["lines"], spec.get("font", TEXT_FONT), spec.get("sizes", tuple(range(30, 11, -1))), bw, bh,
+                   spec.get("fill", (255, 255, 255)), 0, spec.get("outline", (0, 0, 0)), spec.get("outline_px", 2),
+                   spec.get("antialias", False))
     new = [list(r) for r in rows]
     cache: dict[tuple, int] = {}
     for y in range(y0, y1 + 1):
@@ -406,6 +419,54 @@ def photo_label_writes(plan, files, image, spec) -> dict:
         if t != old_t[tn]:
             add_mapped(plan, f"photo:{spec['id']}:{tn:05X}", layout.gfx_offset_to_file, tn * 256, old_t[tn], t)
             written[tn] = t
+    return {spec["id"]: {"tiles_written": len(written), "_tiles": written}}
+
+
+
+def pow_label_writes(plan, files, image, spec) -> dict:
+    """雀pow gauge label: red '+N' pixels stay on top; everything else is redrawn as outlined text with a
+    white-to-lavender vertical gradient, like the source."""
+    pal = graphics.rom_palette(image, spec["palette_rom"], spec["indices"])
+    red = lambda v: v in pal and pal[v][0] - max(pal[v][1], pal[v][2]) > 80
+    plain = {k: q for k, q in pal.items() if not red(k)}
+    written = {}
+    for tnum, w, h in spec["sheets"]:
+        sheet = graphics.SpriteSheet((tnum,), w, h)
+        rows = sheet.read(lambda off, n: region_read(files, off, n))
+        stray = {v for r in rows for v in r} - set(spec["indices"]) - {0}
+        if stray:
+            raise RuntimeError(f"{spec['id']}: unexpected palette indices {sorted(stray)}")
+        art = None
+        for size in range(16, 8, -1):
+            try:
+                art = graphics.text_art(spec["lines"], TEXT_FONT, size, sheet.width, sheet.height, (255, 255, 255),
+                                        (16, 16, 48), 1, align="left", margin=1)
+                break
+            except graphics.GraphicsError:
+                continue
+        if art is None:
+            raise graphics.GraphicsError(f"{spec['id']}: text does not fit")
+        new, cache = [], {}
+        for y, r in enumerate(rows):
+            t = y / max(1, sheet.height - 1)
+            grad = tuple(round(a + (b - a) * t) for a, b in zip((255, 255, 255), (170, 160, 235)))
+            row = []
+            for x, v in enumerate(r):
+                if red(v):
+                    row.append(v)
+                    continue
+                cr, cg, cb, a = art.getpixel((x, y))
+                if a < 128:
+                    row.append(0)
+                    continue
+                c = grad if (cr, cg, cb) == (255, 255, 255) else (cr, cg, cb)
+                row.append(cache.setdefault(c, graphics.nearest(plain, c)))
+            new.append(row)
+        old_t, new_t = sheet.encode(rows), sheet.encode(new)
+        for tn, tile in new_t.items():
+            if tile != old_t[tn]:
+                add_mapped(plan, f"pow:{spec['id']}:{tn:05X}", layout.gfx_offset_to_file, tn * 256, old_t[tn], tile)
+                written[tn] = tile
     return {spec["id"]: {"tiles_written": len(written), "_tiles": written}}
 
 
@@ -452,6 +513,9 @@ def graphics_writes(plan, files, image, assets_dir) -> dict:
     for spec in GRAPHICS:
         if spec["type"] == "card":
             report.update(card_writes(plan, files, image, spec))
+            continue
+        if spec["type"] == "pow_label":
+            report.update(pow_label_writes(plan, files, image, spec))
             continue
         if spec["type"] == "photo_label":
             report.update(photo_label_writes(plan, files, image, spec))

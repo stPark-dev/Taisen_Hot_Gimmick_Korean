@@ -258,3 +258,77 @@ def test_gfx_table_rejects_bad_entries(tmp_path):
         p.write_text(json.dumps({"schema": build.GFX_SCHEMA, "entries": [bad]}), encoding="utf-8")
         with pytest.raises(build.TranslationError):
             build.read_gfx_table(p)
+
+
+def _write_tiles(d, prof, tiles_rows, sheet, extra=None):
+    data = {n: bytearray((d / n).read_bytes()) for n in prof}
+    for tn, tile in sheet.encode(tiles_rows).items():
+        for i, v in enumerate(tile):
+            f, o = layout.gfx_offset_to_file(tn * 256 + i)
+            data[f][o] = v
+    if extra:
+        extra(data)
+    for n, b in data.items():
+        (d / n).write_bytes(bytes(b))
+        prof[n] = (len(b), hashlib.sha1(b).hexdigest())
+
+
+def _pal_put(data, addr, colors):
+    for i, rgb in enumerate(colors):
+        _cpu_put(data["1-u22.bin"], data["2-u23.bin"], addr + i * 4, bytes(rgb) + b"\x00")
+
+
+def test_pow_label_keeps_red_numbers(tmp_path, monkeypatch):
+    import zipfile
+    from hotgmck import graphics
+    d, prof = make_set(tmp_path)
+    sheet = graphics.SpriteSheet((0x9000,), 3, 1)
+    rows = [[0] * 48 for _ in range(16)]
+    for y in range(2, 14):
+        for x in range(2, 30):
+            rows[y][x] = 3
+    for y in range(8, 15):
+        for x in range(30, 46):
+            rows[y][x] = 5
+    colors = [(0, 0, 0), (255, 255, 255), (16, 16, 48), (180, 170, 240), (220, 220, 250), (230, 20, 20)] + [(90, 90, 90)] * 250
+    _write_tiles(d, prof, rows, sheet, lambda data: _pal_put(data, 0x60000, colors))
+    monkeypatch.setattr(source, "PROFILE", prof)
+    spec = {"id": "pow", "type": "pow_label", "sheets": ((0x9000, 3, 1),), "palette_rom": 0x60000,
+            "indices": (1, 2, 3, 4, 5), "lines": ["작파워"]}
+    monkeypatch.setattr(build, "GRAPHICS", [spec])
+    table = tmp_path / "t.json"
+    build.extract(d, table)
+    build.build(d, table, tmp_path / "out", NANUM, assets_dir=tmp_path)
+    z = zipfile.ZipFile(tmp_path / "out" / "hotgmck.zip")
+    files = {n: z.read(n) for n in z.namelist()}
+    out = sheet.read(lambda o, n: build.region_read(files, o, n))
+    assert all(out[y][x] == 5 for y in range(8, 15) for x in range(30, 46))
+    assert any(v not in (0, 5) for r in out for v in r)
+    assert sum(v == 3 for r in out for v in r) < 28 * 12
+
+
+def test_photo_label_red_detection_repaints_red_glyph(tmp_path, monkeypatch):
+    import zipfile
+    from hotgmck import graphics
+    d, prof = make_set(tmp_path)
+    sheet = graphics.SpriteSheet((0x9000,), 2, 2)
+    rows = [[1] * 32 for _ in range(32)]
+    for y in range(4, 28):
+        for x in range(8, 20):
+            rows[y][x] = 2
+    rows[0] = [3] * 32
+    colors = [(0, 0, 0), (225, 220, 200), (150, 10, 30), (40, 40, 40)] + [(i, i, i) for i in range(4, 256)]
+    _write_tiles(d, prof, rows, sheet, lambda data: _pal_put(data, 0x60000, colors))
+    monkeypatch.setattr(source, "PROFILE", prof)
+    spec = {"id": "fuyo", "type": "photo_label", "sheet": (0x9000, 2, 2), "palette_rom": 0x60000, "band": (2, 2, 29, 29),
+            "lines": ["버", "림"], "detect": "red", "fill": (150, 10, 30), "outline": None, "outline_px": 0}
+    monkeypatch.setattr(build, "GRAPHICS", [spec])
+    table = tmp_path / "t.json"
+    build.extract(d, table)
+    build.build(d, table, tmp_path / "out", NANUM, assets_dir=tmp_path)
+    z = zipfile.ZipFile(tmp_path / "out" / "hotgmck.zip")
+    files = {n: z.read(n) for n in z.namelist()}
+    out = sheet.read(lambda o, n: build.region_read(files, o, n))
+    assert out[0] == [3] * 32
+    assert sum(out[y][x] == 2 for y in range(4, 28) for x in range(8, 20)) < 24 * 12
+    assert any(v == 2 for r in out for v in r)
