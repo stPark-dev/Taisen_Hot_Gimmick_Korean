@@ -1191,6 +1191,15 @@
    "note": "agent draft 2026-09-28; tsumo marker on the drawn tile (N slot)"
   },
   {
+   "id": "G_TSUMO_HAND",
+   "template": "S:001D8:2x2:20",
+   "style": "tile_label",
+   "source": "ツ\nモ",
+   "ko": "쯔\n모",
+   "state": "needs_review",
+   "note": "2026-09-30; tsumo marker actually drawn in the N slot during play (copy of 081D08 art, no template entry); user screenshot 쯔모미번역.png"
+  },
+  {
    "id": "G084C08",
    "template": "084C08",
    "style": "brush",
