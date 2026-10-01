@@ -268,3 +268,9 @@ def test_compose_box_rejects_uncovered_cells():
     src = [[31, 31, None], [31, 31, None]]
     with pytest.raises(GraphicsError, match="uncovered"):
         graphics.compose_box(src, Image.new("RGBA", (1, 1)), box=(0, 0, 2, 1), fill=31, palette={31: (0, 0, 0)})
+
+
+def test_inpaint_ignores_uncovered_cells():
+    rgb = [[None, (0, 0, 200), (0, 0, 200)], [None, (255, 255, 255), (0, 0, 200)]]
+    out = graphics.inpaint(rgb, {(1, 1)})
+    assert out[1][1] == (0, 0, 200) and out[0][0] is None

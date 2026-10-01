@@ -128,6 +128,35 @@ def test_extract_refuses_stale_table_entries(env, tmp_path):
         build.extract(d, table)
 
 
+# Geometry (w, h, x, y) of the sprite templates that template-based GRAPHICS specs reference (layout facts only).
+FIXTURE_TEMPLATES = {
+    0x81068: (7, 7, 0, 0), 0x810A0: (12, 3, 112, 32), 0x810A8: (6, 2, 112, 80),
+    **{a: (9, 4, 0, 0) for a in (0x84DA8, 0x84DE0, 0x84E18, 0x84E50, 0x84E88, 0x84EC0, 0x84F20, 0x84F88,
+                                 0x84FC0, 0x84FF8, 0x85030, 0x85068, 0x850A0)},
+    0x84CB8: (12, 14, -32, -112), 0x84CC0: (5, 5, -112, 32), 0x84CC8: (9, 14, 16, -112), 0x84CD0: (8, 5, -112, 32),
+    0x84D00: (12, 14, -160, -112), 0x84D08: (6, 5, 32, 32), 0x84D10: (12, 14, -160, -112), 0x84D18: (6, 5, 32, 32),
+}
+
+
+def _put_templates(data, base_tnum=0x18000):
+    """Write synthetic template entries + tiles for every template-based GRAPHICS spec."""
+    tnum = base_tnum
+    for spec in (s for s in build.GRAPHICS if "template" in s):
+        col = 0x01 if spec["type"] == "panel" else 0x08
+        fill = spec.get("fill", 31) if spec["type"] == "panel" else 1
+        for a in spec["template"].split("+"):
+            w, h, x, y = FIXTURE_TEMPLATES[int(a, 16)]
+            d0 = ((h - 1) << 28) | ((y & 0x3FF) << 16) | ((w - 1) << 12) | (x & 0x3FF)
+            _cpu_put(data["1-u22.bin"], data["2-u23.bin"], int(a, 16), struct.pack(">II", d0, (col << 24) | tnum))
+            for i in range(w * h * 256):
+                f, o = layout.gfx_offset_to_file(tnum * 256 + i)
+                data[f][o] = fill
+            tnum += w * h
+        for i in range(256):      # index 17 = white ... 31 = dark, like the system palettes
+            v = max(0, min(255, 255 - (i - 17) * 17))
+            _cpu_put(data["1-u22.bin"], data["2-u23.bin"], spec["palette_rom"] + i * 4, bytes((v, v, v, 0)))
+
+
 def _fill_title(files_dir, prof):
     """Paint the title sheet tiles with background 30 and a fake logo, and a palette in main ROM."""
     from hotgmck import graphics
@@ -145,6 +174,7 @@ def _fill_title(files_dir, prof):
                 data[f][o] = v
         for i in range(256):
             _cpu_put(data["1-u22.bin"], data["2-u23.bin"], spec["palette_rom"] + i * 4, bytes((i, 255 - i, i // 2, 0)))
+    _put_templates(data)
     for spec in (s for s in build.GRAPHICS if s["type"] == "card"):
         for tnum, w, h in spec["frames"]:
             for i in range(w * h * 256):
@@ -332,3 +362,23 @@ def test_photo_label_red_detection_repaints_red_glyph(tmp_path, monkeypatch):
     assert out[0] == [3] * 32
     assert sum(out[y][x] == 2 for y in range(4, 28) for x in range(8, 20)) < 24 * 12
     assert any(v == 2 for r in out for v in r)
+
+
+def test_panel_writer_draws_inside_parts_and_rejects_text_outside(tmp_path, monkeypatch):
+    d, prof = make_set(tmp_path)
+    prof = _fill_title(d, prof)
+    monkeypatch.setattr(source, "PROFILE", prof)
+    files = {n: (d / n).read_bytes() for n in prof}
+    image = layout.cpu_image(files["1-u22.bin"], files["2-u23.bin"])
+    spec = next(s for s in build.GRAPHICS if s["type"] == "panel")
+    from hotgmck.writeplan import WritePlan
+    plan = WritePlan(files)
+    rep = build.panel_writes(plan, files, image, spec)
+    assert rep[spec["id"]]["tiles_written"] > 0
+    out = plan.apply()
+    canvas, _ = build.template_canvas(image, spec["template"])
+    rows = canvas.read(lambda o, n: build.region_read(out, o, n))
+    assert any(v not in (None, spec["fill"]) for r in rows for v in r)        # text drawn
+    bad = dict(spec, items=(("가나다라마바사아자차카타파하", 0, 0, 30),))       # runs past the 7x7 part into uncovered cells
+    with pytest.raises(RuntimeError, match="outside"):
+        build.panel_writes(WritePlan(files), files, image, bad)

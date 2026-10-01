@@ -1513,6 +1513,60 @@
    "ko": "북",
    "state": "needs_review",
    "note": "agent draft 2026-09-28; seat wind in the score panel"
+  },
+  {
+   "id": "G080A90",
+   "template": "080A90",
+   "style": "bubble",
+   "source": "チー!",
+   "ko": "치!",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G080AB0",
+   "template": "080AB0",
+   "style": "bubble",
+   "source": "リーチ!!",
+   "ko": "리치!!",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G080AD0",
+   "template": "080AD0",
+   "style": "bubble",
+   "source": "ツモ!",
+   "ko": "쯔모!",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G080AF0",
+   "template": "080AF0",
+   "style": "bubble",
+   "source": "ロン!",
+   "ko": "론!",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G081060",
+   "template": "081060",
+   "style": "bubble",
+   "source": "連打開始っス!",
+   "ko": "연타 시작임다!",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G084CA0",
+   "template": "084CA0+084CA8+084CB0",
+   "style": "brush_top",
+   "source": "キ○肉バスター",
+   "ko": "근○버스터",
+   "state": "needs_review",
+   "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
   }
  ]
 }

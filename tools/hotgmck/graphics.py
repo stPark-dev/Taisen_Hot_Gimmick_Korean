@@ -331,7 +331,7 @@ def card_art(lines, indents, font_path, size, width, height, margin=4, line_gap=
 
 
 def inpaint(rgb_rows, mask):
-    """Fill masked pixels by repeatedly averaging already-known 8-neighbours (outside-in)."""
+    """Fill masked pixels by repeatedly averaging already-known 8-neighbours (outside-in); None = uncovered."""
     h, w = len(rgb_rows), len(rgb_rows[0])
     out = [list(r) for r in rgb_rows]
     todo = set(mask)
@@ -339,7 +339,7 @@ def inpaint(rgb_rows, mask):
         ready = {}
         for x, y in todo:
             nb = [out[ny][nx] for nx in range(x - 1, x + 2) for ny in range(y - 1, y + 2)
-                  if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in todo]
+                  if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in todo and out[ny][nx] is not None]
             if nb:
                 ready[(x, y)] = tuple(round(sum(c[i] for c in nb) / len(nb)) for i in range(3))
         if not ready:

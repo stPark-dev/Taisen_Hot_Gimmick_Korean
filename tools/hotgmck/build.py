@@ -70,6 +70,24 @@ GRAPHICS = [
      "lines": ["버", "림"], "detect": "red", "fill": (140, 16, 32), "outline": None, "outline_px": 0,
      "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf", "antialias": True,
      "sizes": (13, 12, 11, 10)},   # 不要 marker on a hand tile (template 81D00): user decision 2026-09-30
+    # versus mode (one board, 1P vs 2P) — palettes from runtime dumps of the versus scenes (2026-10-01)
+    {"id": "vs_challenger", "type": "panel", "template": "081068+0810A0+0810A8", "palette_rom": 0x66910,
+     "indices": tuple(range(17, 32)), "fill": 31, "color": (255, 255, 255), "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf",
+     "items": (("두목,", 10, 6, 18), ("도전자가 나타났슴다!!", 10, 38, 24), ("A:싸운다", 22, 84, 17), ("B:거절", 128, 84, 17))},
+    *[{"id": f"vs_face_{a}", "type": "photo_label", "template": a, "palette_rom": 0x6D610, "band": (52, 6, 141, 58),
+       "lines": [ko], "detect": "light", "fill": (255, 255, 255), "outline": None, "outline_px": 0, "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf",
+       "antialias": True, "sizes": tuple(range(26, 11, -1))}
+      for a, ko in (("084DA8", "생각 중."), ("084DE0", "좋아!"), ("084E18", "흐흐."), ("084E50", "진짜?"),
+                    ("084E88", "그거 아파!"), ("084EC0", "아얏!"), ("084F20", "싫어!!"), ("084F88", "생각 중."),
+                    ("084FC0", "음."), ("084FF8", "흐흐."), ("085030", "아뿔싸!"), ("085068", "아이고~!"),
+                    ("0850A0", "아얏!"))],
+    *[{"id": f"vs_result_{rid}", "type": "photo_label", "template": tpl, "palette_rom": 0x6D610, "band": band,
+       "lines": [ko], "detect": "light", "fill": (255, 255, 255), "outline": (0, 0, 0), "outline_px": 2,
+       "font": "/usr/share/fonts/truetype/nanum/NanumGothicExtraBold.ttf", "antialias": False, "sizes": tuple(range(40, 15, -1))}
+      for rid, tpl, band, ko in (("1p_win", "084CB8+084CC0", (2, 146, 250, 212), "1P 승리!!"),
+                                 ("1p_lose", "084CC8+084CD0", (2, 146, 262, 212), "1P 패배!!"),
+                                 ("2p_win", "084D00+084D08", (30, 146, 286, 212), "2P 승리!!"),
+                                 ("2p_lose", "084D10+084D18", (30, 146, 286, 212), "2P 패배!!"))],
 ]
 
 
@@ -96,6 +114,8 @@ TEXT_STYLES = {
     "glyph": {"kind": "glyph", "col": 0x01},
     "brush": {"kind": "twotone", "col": 0x10, "font": "/usr/share/fonts/truetype/nanum/NanumBrush.ttf",
               "sizes": tuple(range(48, 11, -1)), "align": "left", "margin": 2, "bold": True},
+    "brush_top": {"kind": "twotone", "col": 0x10, "font": "/usr/share/fonts/truetype/nanum/NanumBrush.ttf",
+                  "sizes": tuple(range(48, 11, -1)), "align": "left", "margin": 2, "bold": True, "area": (0, 0, None, 32)},
     "credit": {"kind": "twotone", "col": 0x08, "font": TEXT_FONT, "sizes": tuple(range(22, 9, -1)),
                "align": "left", "margin": 6, "line_gap": 2, "bold": True},
     "wind_small": {"kind": "twotone", "col": 0x00, "font": "/usr/share/fonts/truetype/nanum/NanumGothicExtraBold.ttf",
@@ -297,8 +317,18 @@ def render_graphics_text(files, image, entry):
 
         def check(art):
             graphics.compose_twotone(rows, mask(art), bg, fill, edge, outer=style.get("outer", False))
-        art = fit_text(lines, style["font"], style["sizes"], sheet.width, sheet.height, (255, 255, 255),
-                       style.get("line_gap", 0), None, 0, False, style["align"], style["margin"], check)
+        ax0, ay0, ax1, ay1 = style.get("area", (0, 0, None, None))
+        aw, ah = (ax1 or sheet.width) - ax0, (ay1 or sheet.height) - ay0
+
+        def placed(art_small):
+            full = Image.new("RGBA", (sheet.width, sheet.height), (0, 0, 0, 0))
+            full.paste(art_small, (ax0, ay0))
+            return full
+
+        def check_small(art_small):
+            check(placed(art_small))
+        art = placed(fit_text(lines, style["font"], style["sizes"], aw, ah, (255, 255, 255),
+                              style.get("line_gap", 0), None, 0, False, style["align"], style["margin"], check_small))
         return sheet, rows, graphics.compose_twotone(rows, mask(art), bg, fill, edge, outer=style.get("outer", False))
     if style.get("indices") == "used":
         style = dict(style, indices=tuple(sorted({v for r in rows for v in r if v})))
@@ -384,17 +414,24 @@ def graphics_text_writes(plan, files, image, entries) -> dict:
 
 def photo_label_writes(plan, files, image, spec) -> dict:
     """Text over a photo: detect old text pixels in the band, inpaint them, draw outlined Korean text."""
-    tnum, w, h = spec["sheet"]
-    sheet = graphics.SpriteSheet((tnum,), w, h)
+    if "template" in spec:          # several sprites from template entries (canvas, may have uncovered cells)
+        sheet, _ = template_canvas(image, spec["template"])
+    else:
+        tnum, w, h = spec["sheet"]
+        sheet = graphics.SpriteSheet((tnum,), w, h)
     rows = sheet.read(lambda off, n: region_read(files, off, n))
-    used = sorted({v for r in rows for v in r})
+    used = sorted({v for r in rows for v in r if v is not None})
     pal = graphics.rom_palette(image, spec["palette_rom"], used)
-    rgb = [[pal[v] for v in r] for r in rows]
+    rgb = [[None if v is None else pal[v] for v in r] for r in rows]
     x0, y0, x1, y1 = spec["band"]
     lum = lambda c: 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
     band = [(x, y) for y in range(y0, y1 + 1) for x in range(x0, x1 + 1)]
+    if any(rgb[y][x] is None for x, y in band):
+        raise RuntimeError(f"{spec['id']}: text band covers uncovered canvas cells")
     if spec.get("detect") == "red":     # red glyph on a tile face (e.g. 不要 marker)
         core = {(x, y) for x, y in band if rgb[y][x][0] - max(rgb[y][x][1], rgb[y][x][2]) > 50}
+    elif spec.get("detect") == "light":  # white glyph on a dark background (versus-mode photos)
+        core = {(x, y) for x, y in band if lum(rgb[y][x]) > 150 and max(rgb[y][x]) - min(rgb[y][x]) < 60}
     else:
         core = {(x, y) for x, y in band
                 if (lum(rgb[y][x]) > 200 and max(rgb[y][x]) - min(rgb[y][x]) < 40) or lum(rgb[y][x]) < 45}
@@ -421,6 +458,43 @@ def photo_label_writes(plan, files, image, spec) -> dict:
             written[tn] = t
     return {spec["id"]: {"tiles_written": len(written), "_tiles": written}}
 
+
+
+def panel_writes(plan, files, image, spec) -> dict:
+    """Text panel spread over several sprites: per part, erase text inside its border, then blend Korean text
+    drawn at fixed canvas positions (spec["items"] = (text, x, y, size))."""
+    from PIL import ImageDraw, ImageFont
+    sheet, _ = template_canvas(image, spec["template"])
+    rows = sheet.read(lambda off, n: region_read(files, off, n))
+    pal = graphics.rom_palette(image, spec["palette_rom"], spec["indices"])
+    stray = {v for r in rows for v in r if v is not None} - set(spec["indices"]) - {0}
+    if stray:
+        raise RuntimeError(f"{spec['id']}: unexpected palette indices {sorted(stray)}")
+    art = Image.new("RGBA", (sheet.width, sheet.height), (0, 0, 0, 0))
+    d = ImageDraw.Draw(art)
+    for text, x, y, size in spec["items"]:
+        d.text((x, y), text, font=ImageFont.truetype(spec["font"], size), fill=spec["color"] + (255,))
+    new = [list(r) for r in rows]
+    covered = set()
+    for tnum, w, h, ox, oy in sheet.parts:
+        sub = [rows[y][ox:ox + w * 16] for y in range(oy, oy + h * 16)]
+        ex0, ey0, ex1, ey1 = graphics.text_box(sub, spec["fill"], 0)
+        crop = art.crop((ox + ex0, oy + ey0, ox + ex1 + 1, oy + ey1 + 1))
+        out = graphics.compose_box(sub, crop, (ex0, ey0, ex1, ey1), spec["fill"], pal)
+        for y in range(h * 16):
+            new[oy + y][ox:ox + w * 16] = out[y]
+        covered |= {(ox + x, oy + y) for x in range(ex0, ex1 + 1) for y in range(ey0, ey1 + 1)}
+    alpha = art.getchannel("A")
+    lost = [(x, y) for y in range(sheet.height) for x in range(sheet.width) if alpha.getpixel((x, y)) and (x, y) not in covered]
+    if lost:
+        raise RuntimeError(f"{spec['id']}: text outside the editable parts at {lost[:3]}")
+    old_t, new_t = sheet.encode(rows), sheet.encode(new)
+    written = {}
+    for tn, t in new_t.items():
+        if t != old_t[tn]:
+            add_mapped(plan, f"panel:{spec['id']}:{tn:05X}", layout.gfx_offset_to_file, tn * 256, old_t[tn], t)
+            written[tn] = t
+    return {spec["id"]: {"tiles_written": len(written), "_tiles": written}}
 
 
 def pow_label_writes(plan, files, image, spec) -> dict:
@@ -513,6 +587,9 @@ def graphics_writes(plan, files, image, assets_dir) -> dict:
     for spec in GRAPHICS:
         if spec["type"] == "card":
             report.update(card_writes(plan, files, image, spec))
+            continue
+        if spec["type"] == "panel":
+            report.update(panel_writes(plan, files, image, spec))
             continue
         if spec["type"] == "pow_label":
             report.update(pow_label_writes(plan, files, image, spec))
