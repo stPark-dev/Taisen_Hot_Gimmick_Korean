@@ -10,7 +10,7 @@ import zipfile
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-from . import charmap, graphics, layout, source, textblock
+from . import bps, charmap, graphics, layout, source, textblock
 from .writeplan import WritePlan
 
 SCHEMA = "hotgmck-dialogue/1"
@@ -70,6 +70,26 @@ GRAPHICS = [
      "lines": ["버", "림"], "detect": "red", "fill": (140, 16, 32), "outline": None, "outline_px": 0,
      "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf", "antialias": True,
      "sizes": (13, 12, 11, 10)},   # 不要 marker on a hand tile (template 81D00): user decision 2026-09-30
+    {"id": "tile_fuyo_hand", "type": "photo_label", "sheet": (0x1D4, 2, 2), "palette_rom": 0x66550, "band": (1, 0, 19, 25),
+     "lines": ["버", "림"], "detect": "red", "fill": (140, 16, 32), "outline": None, "outline_px": 0,
+     "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf", "antialias": True,
+     "sizes": (13, 12, 11, 10)},   # copy actually drawn on hand tiles during 패 바꾸기 (no template; found 2026-10-01)
+    # ending staff credits — white text on black, palettes measured at runtime (2026-10-01); line positions from source
+    {"id": "credit_staff1", "type": "credit", "template": "081778", "palette_rom": 0x6BA10, "bg": 252,
+     "lines": (("제작  니와 준이치", 15, 3), ("감독  나카무라 신스케", 14, 29), ("기획/각본", 14, 69),
+               ("야마다 케이시", 73, 89), ("디자인/연출", 17, 115), ("오가와 효에", 73, 135))},
+    {"id": "credit_design", "type": "credit", "template": "081780+081788", "palette_rom": 0x6BE10, "bg": 252, "size": 13,
+     "lines": (("디자인", 21, 16), ("이와부치 요스케", 41, 38), ("오다 히데유키", 41, 65), ("츠카고시 요코", 40, 86),
+               ("타케모리 노리카즈", 40, 107), ("타니구치 에미", 100, 128), ("우에오카 히데토", 100, 149),
+               ("후지타 케이조", 100, 170), ("아사하라 쿠니오", 100, 191))},
+    {"id": "credit_program", "type": "credit", "template": "0817A0", "palette_rom": 0x6C210, "bg": 252,
+     "lines": (("프로그램", 1, 7), ("사이토 시오리", 30, 30), ("아니스지 타로", 30, 60), ("요시다 카즈시", 30, 82),
+               ("사운드", 2, 119), ("이즈타니 마사키", 30, 142), ("타니오카 쿠미", 30, 164))},
+    {"id": "credit_character", "type": "credit", "template": "0817A8", "palette_rom": 0x6C610, "bg": 252,
+     "lines": (("캐릭터 디자인", 12, 14), ("츠카사 준", 72, 36), ("게스트 캐릭터 디자인", 12, 76),
+               ("테라다 카츠야", 71, 98), ("원고 펑크 낸 사람", 12, 138), ("나카무라 히로후미", 30, 160))},
+    {"id": "credit_copyright", "type": "credit", "template": "0817C0", "palette_rom": 0x6CA10, "bg": 252,
+     "lines": (("제작/저작", 12, 16), ("1997 사이쿄", 16, 56))},
     # versus mode (one board, 1P vs 2P) — palettes from runtime dumps of the versus scenes (2026-10-01)
     {"id": "vs_challenger", "type": "panel", "template": "081068+0810A0+0810A8", "palette_rom": 0x66910,
      "indices": tuple(range(17, 32)), "fill": 31, "color": (255, 255, 255), "font": "/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf",
@@ -115,7 +135,7 @@ TEXT_STYLES = {
     "brush": {"kind": "twotone", "col": 0x10, "font": "/usr/share/fonts/truetype/nanum/NanumBrush.ttf",
               "sizes": tuple(range(48, 11, -1)), "align": "left", "margin": 2, "bold": True},
     "brush_top": {"kind": "twotone", "col": 0x10, "font": "/usr/share/fonts/truetype/nanum/NanumBrush.ttf",
-                  "sizes": tuple(range(48, 11, -1)), "align": "left", "margin": 2, "bold": True, "area": (0, 0, None, 32)},
+                  "sizes": tuple(range(48, 11, -1)), "align": "left", "margin": 2, "bold": True, "area": (0, 0, 240, 32)},
     "credit": {"kind": "twotone", "col": 0x08, "font": TEXT_FONT, "sizes": tuple(range(22, 9, -1)),
                "align": "left", "margin": 6, "line_gap": 2, "bold": True},
     "wind_small": {"kind": "twotone", "col": 0x00, "font": "/usr/share/fonts/truetype/nanum/NanumGothicExtraBold.ttf",
@@ -132,6 +152,20 @@ TEXT_STYLES = {
                "font": MYEONGJO_XB, "sizes": (30, 28, 26, 24, 22, 20, 18, 16, 14), "color": (255, 255, 255), "line_gap": 1},
 }
 GFX_SCHEMA = "hotgmck-graphics-text/1"
+EXCLUSION_SCHEMA = "hotgmck-exclusions/1"
+
+
+def read_exclusions(path) -> list[dict]:
+    doc = json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
+    if doc.get("schema") != EXCLUSION_SCHEMA:
+        raise TranslationError(f"unknown exclusion schema {doc.get('schema')!r}")
+    ids = [x.get("id") for x in doc["exclusions"]]
+    if len(ids) != len(set(ids)):
+        raise TranslationError("duplicate exclusion ids")
+    for x in doc["exclusions"]:
+        if set(x) != {"id", "content", "reason", "approved_by", "date"} or not all(isinstance(v, str) and v.strip() for v in x.values()):
+            raise TranslationError(f"exclusion {x.get('id')}: every field (content, reason, approver, date) is required")
+    return doc["exclusions"]
 
 
 class TranslationError(ValueError):
@@ -460,6 +494,49 @@ def photo_label_writes(plan, files, image, spec) -> dict:
 
 
 
+def credit_writes(plan, files, image, spec) -> dict:
+    """Staff-credit page: clear every pixel to the black background, then draw white anti-aliased Korean lines
+    at the measured original line positions (spec["lines"] = (text, x, y)), mapped to the page palette."""
+    from PIL import ImageDraw, ImageFont
+    sheet, _ = template_canvas(image, spec["template"])
+    rows = sheet.read(lambda off, n: region_read(files, off, n))
+    used = sorted({v for r in rows for v in r if v is not None})
+    pal = graphics.rom_palette(image, spec["palette_rom"], used)
+    bg = spec["bg"]
+    font = ImageFont.truetype(spec.get("font", TEXT_FONT), spec.get("size", 15))
+    art = Image.new("L", (sheet.width, sheet.height), 0)
+    d = ImageDraw.Draw(art)
+    for text, x, y in spec["lines"]:
+        box = d.textbbox((x, y), text, font=font)
+        if box[2] > sheet.width or box[3] > sheet.height:
+            raise RuntimeError(f"{spec['id']}: credit line {text!r} does not fit the page")
+        d.text((x, y), text, font=font, fill=255)
+    base = pal[bg]
+    cache: dict[int, int] = {}
+    new = []
+    for y, r in enumerate(rows):
+        row = []
+        for x, v in enumerate(r):
+            if v is None:
+                if art.getpixel((x, y)):
+                    raise RuntimeError(f"{spec['id']}: credit text does not fit inside the drawable parts")
+                row.append(None)
+                continue
+            a = art.getpixel((x, y))
+            if a not in cache:
+                c = tuple(round(255 * a / 255 + f * (255 - a) / 255) for f in base)
+                cache[a] = bg if a == 0 else graphics.nearest(pal, c)
+            row.append(cache[a])
+        new.append(row)
+    old_t, new_t = sheet.encode(rows), sheet.encode(new)
+    written = {}
+    for tn, t in new_t.items():
+        if t != old_t[tn]:
+            add_mapped(plan, f"credit:{spec['id']}:{tn:05X}", layout.gfx_offset_to_file, tn * 256, old_t[tn], t)
+            written[tn] = t
+    return {spec["id"]: {"tiles_written": len(written), "_tiles": written}}
+
+
 def panel_writes(plan, files, image, spec) -> dict:
     """Text panel spread over several sprites: per part, erase text inside its border, then blend Korean text
     drawn at fixed canvas positions (spec["items"] = (text, x, y, size))."""
@@ -588,6 +665,9 @@ def graphics_writes(plan, files, image, assets_dir) -> dict:
         if spec["type"] == "card":
             report.update(card_writes(plan, files, image, spec))
             continue
+        if spec["type"] == "credit":
+            report.update(credit_writes(plan, files, image, spec))
+            continue
         if spec["type"] == "panel":
             report.update(panel_writes(plan, files, image, spec))
             continue
@@ -626,7 +706,7 @@ def graphics_writes(plan, files, image, assets_dir) -> dict:
 
 
 def build(source_path, table_path, out_dir, font_path, font_size=15, policy="development", assets_dir=None,
-          gfx_table=None, version=None) -> dict:
+          gfx_table=None, version=None, exclusions=None) -> dict:
     if policy not in ("development", "release"):
         raise ValueError(f"unknown policy {policy}")
     font_path = pathlib.Path(font_path)
@@ -644,8 +724,12 @@ def build(source_path, table_path, out_dir, font_path, font_size=15, policy="dev
         diff = [k for k in PROTECTED if base[k] != r[k]]
         if diff:
             raise TranslationError(f"{r['id']}: protected fields differ from source: {diff}")
+    excluded = []
     if policy == "release":
-        bad = [r["id"] for r in recs if r["state"] != "distribution_eligible"]
+        if exclusions is None:
+            raise TranslationError("release policy: an approved exclusion record is required")
+        excluded = [x["id"] for x in read_exclusions(exclusions)]
+        bad = [r["id"] for r in recs if r["state"] != "distribution_eligible" and r["source_codes"]]
         if bad:
             raise TranslationError(f"release policy: {len(bad)} entries not distribution_eligible (e.g. {bad[:5]})")
     selected = [r for r in recs if r["state"] != "untranslated"]
@@ -711,7 +795,7 @@ def build(source_path, table_path, out_dir, font_path, font_size=15, policy="dev
         for name in source.PROFILE:
             z.writestr(name, bytes(out[name]))
     manifest = {
-        "patch_version": version, "policy": policy, "distribution": policy == "release",
+        "patch_version": version, "policy": policy, "distribution": policy == "release", "exclusions": excluded,
         "source_profile": {n: s for n, (_, s) in source.PROFILE.items()},
         "translation_table_sha1": table_sha1,
         "font": {"path": font_path.name, "sha1": font_sha1, "size": font_size},
@@ -722,11 +806,53 @@ def build(source_path, table_path, out_dir, font_path, font_size=15, policy="dev
         "glyphs_written": len(glyphs), "writes": len(plan.writes), "graphics": gfx,
         "output_sha1": {n: hashlib.sha1(bytes(out[n])).hexdigest() for n in source.PROFILE},
     }
-    _publish(pathlib.Path(out_dir), {
+    patches = {f"patch/{n}.bps": bps.create(files[n], bytes(out[n])) for n in source.PROFILE if bytes(out[n]) != files[n]}
+    for name, data in patches.items():    # verify every patch reproduces the output before publishing
+        n = name[len("patch/"):-len(".bps")]
+        if bps.apply(files[n], data) != bytes(out[n]):
+            raise RuntimeError(f"{name}: patch does not reproduce the output")
+    patch_manifest = {
+        "format": "BPS", "game": "hotgmck", "patch_version": version, "distribution": policy == "release",
+        "files": {name[len("patch/"):-len(".bps")]: {"source_sha1": source.PROFILE[name[len("patch/"):-len(".bps")]][1],
+                                                      "target_sha1": manifest["output_sha1"][name[len("patch/"):-len(".bps")]]}
+                  for name in patches},
+        "unchanged": [n for n in source.PROFILE if bytes(out[n]) == files[n]],
+    }
+    out_dir = pathlib.Path(out_dir)
+    if (out_dir / "patch").is_dir():
+        for stale in (out_dir / "patch").glob("*.bps"):
+            stale.unlink()
+    (out_dir / "patch").mkdir(parents=True, exist_ok=True)
+    _publish(out_dir, {
         "hotgmck.zip": buf.getvalue(),
         "manifest.json": (json.dumps(manifest, ensure_ascii=False, indent=1) + "\n").encode("utf-8"),
+        **patches,
+        "patch/patch.json": (json.dumps(patch_manifest, ensure_ascii=False, indent=1) + "\n").encode("utf-8"),
     })
     return manifest
+
+
+def apply_patch(source_path, patch_dir, out_dir) -> dict:
+    """Apply BPS patches in patch_dir to a verified source set; writes out_dir/hotgmck.zip."""
+    files = source.load(source_path)
+    patch_dir = pathlib.Path(patch_dir)
+    pm = json.loads((patch_dir / "patch.json").read_text(encoding="utf-8"))
+    if pm.get("format") != "BPS" or pm.get("game") != "hotgmck":
+        raise TranslationError("not a hotgmck BPS patch set")
+    result = dict(files)
+    for name, info in pm["files"].items():
+        if info["source_sha1"] != source.PROFILE[name][1]:
+            raise TranslationError(f"{name}: patch made for a different source")
+        data = bps.apply(files[name], (patch_dir / f"{name}.bps").read_bytes())
+        if hashlib.sha1(data).hexdigest() != info["target_sha1"]:
+            raise TranslationError(f"{name}: patched file does not match the expected result")
+        result[name] = data
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for name in source.PROFILE:
+            z.writestr(name, result[name])
+    _publish(pathlib.Path(out_dir), {"hotgmck.zip": buf.getvalue()})
+    return pm
 
 
 def _publish(out_dir: pathlib.Path, outputs: dict[str, bytes]) -> None:
@@ -735,9 +861,12 @@ def _publish(out_dir: pathlib.Path, outputs: dict[str, bytes]) -> None:
     temps = {}
     try:
         for name, data in outputs.items():
-            fd, tmp = tempfile.mkstemp(dir=out_dir, prefix=f".{name}.")
+            dest = out_dir / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            fd, tmp = tempfile.mkstemp(dir=dest.parent, prefix=f".{dest.name}.")
             with os.fdopen(fd, "wb") as fh:
                 fh.write(data)
+            os.chmod(tmp, 0o644)       # mkstemp creates 0600; outputs are meant to be shared
             temps[name] = tmp
         for name in outputs:
             (out_dir / name).unlink(missing_ok=True)

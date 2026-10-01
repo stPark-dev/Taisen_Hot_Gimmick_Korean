@@ -135,6 +135,8 @@ FIXTURE_TEMPLATES = {
                                  0x84FC0, 0x84FF8, 0x85030, 0x85068, 0x850A0)},
     0x84CB8: (12, 14, -32, -112), 0x84CC0: (5, 5, -112, 32), 0x84CC8: (9, 14, 16, -112), 0x84CD0: (8, 5, -112, 32),
     0x84D00: (12, 14, -160, -112), 0x84D08: (6, 5, 32, 32), 0x84D10: (12, 14, -160, -112), 0x84D18: (6, 5, 32, 32),
+    0x81778: (11, 10, 0, 0), 0x81780: (12, 8, -160, -112), 0x81788: (6, 6, -64, 16), 0x817A0: (9, 12, 0, 0),
+    0x817A8: (10, 12, 0, 0), 0x817C0: (7, 5, 0, 0),
 }
 
 
@@ -143,7 +145,7 @@ def _put_templates(data, base_tnum=0x18000):
     tnum = base_tnum
     for spec in (s for s in build.GRAPHICS if "template" in s):
         col = 0x01 if spec["type"] == "panel" else 0x08
-        fill = spec.get("fill", 31) if spec["type"] == "panel" else 1
+        fill = spec.get("fill", 31) if spec["type"] == "panel" else (spec["bg"] if spec["type"] == "credit" else 1)
         for a in spec["template"].split("+"):
             w, h, x, y = FIXTURE_TEMPLATES[int(a, 16)]
             d0 = ((h - 1) << 28) | ((y & 0x3FF) << 16) | ((w - 1) << 12) | (x & 0x3FF)
@@ -382,3 +384,107 @@ def test_panel_writer_draws_inside_parts_and_rejects_text_outside(tmp_path, monk
     bad = dict(spec, items=(("가나다라마바사아자차카타파하", 0, 0, 30),))       # runs past the 7x7 part into uncovered cells
     with pytest.raises(RuntimeError, match="outside"):
         build.panel_writes(WritePlan(files), files, image, bad)
+
+
+def test_build_emits_bps_patches_that_reproduce_output(env):
+    d, table, out = env
+    _edit(table, "T0A77F0", ko="가나\n!", state="in_progress")
+    build.build(d, table, out, NANUM)
+    import zipfile
+    built = {n: zipfile.ZipFile(out / "hotgmck.zip").read(n) for n in source.PROFILE}
+    patch_dir = out / "patch"
+    pm = json.loads((patch_dir / "patch.json").read_text(encoding="utf-8"))
+    changed = {n for n in source.PROFILE if built[n] != (d / n).read_bytes()}
+    assert set(pm["files"]) == changed and changed
+    dest = out / "applied"
+    build.apply_patch(d, patch_dir, dest)
+    rebuilt = {n: zipfile.ZipFile(dest / "hotgmck.zip").read(n) for n in source.PROFILE}
+    assert rebuilt == built
+
+
+def test_apply_patch_rejects_wrong_source(env, tmp_path):
+    d, table, out = env
+    _edit(table, "T0A77F0", ko="가", state="in_progress")
+    build.build(d, table, out, NANUM)
+    bad = tmp_path / "bad"
+    bad.mkdir()
+    for n in source.PROFILE:
+        data = bytearray((d / n).read_bytes())
+        if n == "1-u22.bin":
+            data[0] ^= 1
+        (bad / n).write_bytes(bytes(data))
+    with pytest.raises(source.SourceError):
+        build.apply_patch(bad, out / "patch", tmp_path / "dest")
+
+
+def _all_eligible(table):
+    doc = json.loads(table.read_text(encoding="utf-8"))
+    doc["entries"] = [r for r in doc["entries"]]
+    for r in doc["entries"]:
+        if r["source_codes"]:
+            r.update(ko=r["ko"] or "가", state="distribution_eligible")
+    table.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+
+
+def test_release_requires_exclusion_record(env, tmp_path):
+    d, table, out = env
+    _all_eligible(table)
+    with pytest.raises(build.TranslationError, match="exclusion"):
+        build.build(d, table, out, NANUM, policy="release")
+    ex = tmp_path / "ex.json"
+    ex.write_text(json.dumps({"schema": build.EXCLUSION_SCHEMA, "exclusions": [
+        {"id": "X1", "content": "c", "reason": "r", "approved_by": "user", "date": "2026-10-01"}]}), encoding="utf-8")
+    m = build.build(d, table, out, NANUM, policy="release", exclusions=ex)
+    assert m["distribution"] is True and m["exclusions"] == ["X1"]
+
+
+def test_release_rejects_incomplete_exclusion(env, tmp_path):
+    d, table, out = env
+    _all_eligible(table)
+    ex = tmp_path / "ex.json"
+    ex.write_text(json.dumps({"schema": build.EXCLUSION_SCHEMA, "exclusions": [
+        {"id": "X1", "content": "c", "reason": "", "approved_by": "user", "date": "2026-10-01"}]}), encoding="utf-8")
+    with pytest.raises(build.TranslationError, match="exclusion"):
+        build.build(d, table, out, NANUM, policy="release", exclusions=ex)
+
+
+def test_release_ignores_entries_with_empty_source(env, tmp_path):
+    d, table, out = env
+    doc = json.loads(table.read_text(encoding="utf-8"))
+    assert any(not r["source_codes"] for r in doc["entries"])
+    _all_eligible(table)
+    ex = tmp_path / "ex.json"
+    ex.write_text(json.dumps({"schema": build.EXCLUSION_SCHEMA, "exclusions": [
+        {"id": "X1", "content": "c", "reason": "r", "approved_by": "user", "date": "2026-10-01"}]}), encoding="utf-8")
+    build.build(d, table, out, NANUM, policy="release", exclusions=ex)
+
+
+def test_credit_writer_redraws_page_on_black(tmp_path, monkeypatch):
+    d, prof = make_set(tmp_path)
+    prof = _fill_title(d, prof)
+    monkeypatch.setattr(source, "PROFILE", prof)
+    files = {n: (d / n).read_bytes() for n in prof}
+    image = layout.cpu_image(files["1-u22.bin"], files["2-u23.bin"])
+    data = {n: bytearray(b) for n, b in files.items()}
+    tnum = 0x19000
+    _cpu_put(data["1-u22.bin"], data["2-u23.bin"], 0x81778, struct.pack(">II", (3 << 28) | (3 << 12), (8 << 24) | tnum))
+    for i in range(16 * 256):
+        f, o = layout.gfx_offset_to_file(tnum * 256 + i)
+        data[f][o] = 252 if i % 7 else 1
+    for i in range(256):
+        v = 0 if i == 252 else max(0, 251 - i)
+        _cpu_put(data["1-u22.bin"], data["2-u23.bin"], 0x6BA10 + i * 4, bytes((v, v, v, 0)))
+    files = {n: bytes(b) for n, b in data.items()}
+    image = layout.cpu_image(files["1-u22.bin"], files["2-u23.bin"])
+    spec = {"id": "c", "type": "credit", "template": "081778", "palette_rom": 0x6BA10, "bg": 252,
+            "lines": (("가나", 2, 3), ("다라", 20, 30))}
+    from hotgmck.writeplan import WritePlan
+    plan = WritePlan(files)
+    rep = build.credit_writes(plan, files, image, spec)
+    out = plan.apply()
+    from hotgmck import graphics
+    rows = graphics.SpriteSheet((tnum,), 4, 4).read(lambda o, n: build.region_read(out, o, n))
+    assert rep["c"]["tiles_written"] > 0
+    assert rows[63][63] == 252 and any(v != 252 for v in rows[5])      # old ink gone, new text drawn
+    with pytest.raises(RuntimeError, match="fit"):
+        build.credit_writes(WritePlan(files), files, image, dict(spec, lines=(("가나다라마바사아자차카", 0, 0),)))

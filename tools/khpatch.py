@@ -18,6 +18,10 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
+    ap_apply = sub.add_parser("apply", help="apply the BPS patch set to an original hotgmck set")
+    ap_apply.add_argument("--source", required=True)
+    ap_apply.add_argument("--patch", default=ROOT / "patch")
+    ap_apply.add_argument("--out", default=ROOT / "out_patched")
     for name in ("extract", "build"):
         p = sub.add_parser(name)
         p.add_argument("--source", required=True, help="hotgmck.zip or directory with the MAME set")
@@ -29,13 +33,17 @@ def main(argv=None) -> int:
             p.add_argument("--policy", choices=("development", "release"), default="development")
     a = ap.parse_args(argv)
     try:
-        if a.cmd == "extract":
+        if a.cmd == "apply":
+            pm = build.apply_patch(a.source, a.patch, a.out)
+            print(f"applied {len(pm['files'])} patches (v{pm['patch_version']}) -> {a.out}/hotgmck.zip")
+        elif a.cmd == "extract":
             doc = build.extract(a.source, a.table)
             print(f"extracted {len(doc['entries'])} entries -> {a.table}")
         else:
             m = build.build(a.source, a.table, a.out, a.font, a.font_size, a.policy, assets_dir=ROOT / "assets",
                               gfx_table=ROOT / "translation" / "graphics_text.json",
-                              version=(ROOT / "VERSION").read_text().strip())
+                              version=(ROOT / "VERSION").read_text().strip(),
+                              exclusions=ROOT / "translation" / "exclusions.json")
             print(json.dumps({k: m[k] for k in ("patch_version", "policy", "distribution", "entries", "glyphs_written", "writes")}, ensure_ascii=False)); print("graphics items:", len(m["graphics"]), "tiles:", sum(v["tiles_written"] for v in m["graphics"].values()))
     except Exception as err:  # machine-detectable failure with scope in the message
         print(f"FAILED: {err}", file=sys.stderr)

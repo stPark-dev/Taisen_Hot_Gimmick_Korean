@@ -1,0 +1,16 @@
+{
+ "schema": "hotgmck-exclusions/1",
+ "note": "Content intentionally left untranslated in the release scope. The release build checks this list exists and every entry is approved.",
+ "exclusions": [
+  {"id": "X-ENGLISH", "content": "English graphics: CONTINUE?, GAME OVER, INSERT COINS, PLAYER 1/2, (YOU), VS, ROUND, FIGHT!!, character English profiles and signatures, CREDIT, WIN/WINS, FREE",
+   "reason": "Already readable; owner decided to keep English", "approved_by": "user", "date": "2026-09-28"},
+  {"id": "X-BRAND", "content": "Company logos and copyright: 彩京/PSIKYO logo, ©1997",
+   "reason": "Brand marks are not translated", "approved_by": "agent (user delegation 2026-10-01)", "date": "2026-10-01"},
+  {"id": "X-JANFIGHT", "content": "対戦ジャンファイト logo animation, sprite templates 0x81558-0x815E0 (tiles 0x3567-0x3F66)",
+   "reason": "Not consumed: no code or data references to these templates, absent from 1,297 runtime sprite dumps (attract, single-player and one-board versus play)", "approved_by": "agent (user delegation 2026-10-01)", "date": "2026-10-01"},
+  {"id": "X-RANKBRUSH", "content": "Hand-rank brush numerals 一・二・三・四・五・満貫・ハネ満・倍満・三倍満・役満 (templates 0x840B0-0x84120)",
+   "reason": "Only referenced by the 35 identical wrestling-move script blocks (0x9C6B4-0xA3324) and never observed in 1,297 runtime dumps; the hand-rank text actually shown on win screens is translated (templates 0x80850-0x80888)", "approved_by": "agent (user delegation 2026-10-01)", "date": "2026-10-01"},
+  {"id": "X-UNREF-STRINGS", "content": "7 dialogue-block strings without pointers (T0AA1D4 stocking line, T0AB6FC monitor text, T0ABA98/AA4/AB0/ABC/B28 numbers)",
+   "reason": "Translated anyway; listed so their unverified runtime use is on record", "approved_by": "agent (user delegation 2026-10-01)", "date": "2026-10-01"}
+ ]
+}

@@ -111,9 +111,9 @@
    ],
    "source_codes": "00E3 00F1 0000 0114 010A 001A 0146 0769 08E1 0008 FFFD FFFD FFFE 00BB 00F4 00CF 0BEA 084B 0007 FFFD FFFD FFFD FFFD FFFD FFFD FFFE FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD",
    "source": "ほら、スクール水着！  \nこれで満足？      \n            ",
-   "ko": "자,스쿨 수영복！\n이제 만족해？",
+   "ko": "자,학교 수영복！\n이제 만족해？",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0A7990",
@@ -341,9 +341,9 @@
    ],
    "source_codes": "00AC 00AC 0123 010E 00AA 00F3 00D2 0000 0A12 0BC8 0751 0008 FFFE 00B2 07F0 00D6 04FC 021F 00FA 037F 00CB 00CE 00EC 00F3 00F0 FFFE FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD FFFD",
    "source": "いいトコあるな、日本人！\nお前の幸運を祈ってやるよ\n            ",
-   "ko": "좋은 데 있네,일본인！\n네 행운을 빌어 주지",
+   "ko": "좋은 점 있네,일본인！\n네 행운을 빌어 주지",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0A7CEC",
@@ -1355,9 +1355,9 @@
    ],
    "source_codes": "011C 0008 FFFE 00D2 00A9 00D3 0000 00E6 00C8 00E6 00C8 0008",
    "source": "チ！\nなぁに、まだまだ！",
-   "ko": "칫！\n뭘,아직 몰라！",
+   "ko": "칫！\n까짓것,아직이야！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0A8A08",
@@ -1861,9 +1861,9 @@
    ],
    "source_codes": "00AE 00AD 0023 0023 05D1 0B8B 00D2 00AC 00B3 0023 0023 FFFD FFFE 00B3 0000 0282 01A8 00AC 014A 014E 00C9 00EB 00FB FFFD FFFD FFFE 00C8 00BB 00D0 0001 0105 0000 0105 0136 0136 0136 0136 0008",
    "source": "うぅ‥‥仕方ないか‥‥ \nか、可愛いワンちゃん  \nだこと。オ、オホホホホ！",
-   "ko": "으으‥‥할 수 없나‥‥\n귀,귀여운 멍멍이\n네요.오,오호호호！",
+   "ko": "으으‥‥할 수 없지‥‥\n귀,귀여운 멍멍이네요.\n오,오호호호！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0A90B8",
@@ -1949,9 +1949,9 @@
    ],
    "source_codes": "0133 00FE 0000 0106 013D 014E 0000 0106 013D 014E 0008 FFFE 00EA 00CB 00D0 0BCF 0781 00CF 033B 00D6 0738 00FA FFFE 0926 00F7 00C1 00CF 010F 0111 00F3 0008",
    "source": "ヘィ、カモン、カモン！\nもっと麻雀で漢の心を\n通わすでゴザる！",
-   "ko": "헤이,컴온,컴온！\n더 마작으로 사나이\n마음을 나누세！",
+   "ko": "헤이,컴온,컴온！\n마작으로 사나이의\n정을 나누겠소！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0A91E4",
@@ -3240,9 +3240,9 @@
    ],
    "source_codes": "0BC8 09AE 00D7 0000 00EA 00D6 00C1 00BC 00B7 007C 00D2 044E FFFE 00D2 00FB 00C8 00B9 00D1 0000 0885 0751 00D6 0602 0716 00CF FFFE 049D 00F3 00C8 00B9 00CB 0114 0008 05D0 0A24 00CB 0114 0008",
    "source": "本当は、ものすごくＨな刑\nなんだけど、大人の事情で\n見るだけっス！残念っス！",
-   "ko": "실은 엄청 야한 벌인데\n어른의 사정으로\n보기만 함다！아쉬움다！",
+   "ko": "실은 엄청 야한 벌인데\n어른의 사정으로\n보기만 함다！아쉽슴다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AA274",
@@ -3812,9 +3812,9 @@
    ],
    "source_codes": "00B2 00EC 00DB 00FB 0B19 00B9 00CB 0114 FFFE 013B 011C 013E 05D0 0A24 00CB 0114 0008",
    "source": "おやびん負けっス\nムチャ残念っス！",
-   "ko": "두목 패배임다\n엄청 아쉬움다！",
+   "ko": "두목 패배임다\n엄청 아쉽슴다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAAFC",
@@ -4044,9 +4044,9 @@
    ],
    "source_codes": "00AA 00D0 0000 0074 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、９秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "９초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "９초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AADC8",
@@ -4062,9 +4062,9 @@
    ],
    "source_codes": "00AA 00D0 0000 0073 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、８秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "８초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "８초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AADFC",
@@ -4080,9 +4080,9 @@
    ],
    "source_codes": "00AA 00D0 0000 0072 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、７秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "７초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "７초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAE30",
@@ -4098,9 +4098,9 @@
    ],
    "source_codes": "00AA 00D0 0000 0071 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、６秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "６초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "６초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAE64",
@@ -4116,9 +4116,9 @@
    ],
    "source_codes": "00AA 00D0 0000 0070 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、５秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "５초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "５초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAE98",
@@ -4134,9 +4134,9 @@
    ],
    "source_codes": "00AA 00D0 0000 006F 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、４秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "４초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "４초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAECC",
@@ -4152,9 +4152,9 @@
    ],
    "source_codes": "00AA 00D0 0000 006E 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、３秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "３초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "３초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAF00",
@@ -4170,9 +4170,9 @@
    ],
    "source_codes": "00AA 00D0 0000 006D 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、２秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "２초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "２초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAF34",
@@ -4188,9 +4188,9 @@
    ],
    "source_codes": "00AA 00D0 0000 006C 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、１秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "１초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "１초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAF68",
@@ -4206,9 +4206,9 @@
    ],
    "source_codes": "00AA 00D0 0000 006B 0AF3 00CB 0114 0008 FFFD FFFD FFFD FFFD FFFE 0821 00B7 07EA 00DE 00CB 0114 00F0 0008 FFFD FFFD FFFD FFFD",
    "source": "あと、０秒っス！    \n早く選ぶっスよ！    ",
-   "ko": "０초 남았슴다！\n빨리 고르겠슴다！",
+   "ko": "０초 남았슴다！\n서둘러야 함다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AAF9C",
@@ -4241,9 +4241,9 @@
    ],
    "source_codes": "00B2 00EC 00DB 00FB 00D6 06C7 0CA0 00CB 0114 0008 FFFD FFFD FFFE FFFD 04F5 00B5 00D2 01E3 0835 00FA 07EA 00DE 00CB 0114 0008",
    "source": "おやびんの勝利っス！  \n 好きな衣装を選ぶっス！",
-   "ko": "두목의 승리임다！\n맘대로 옷 고르겠슴다！",
+   "ko": "두목의 승리임다！\n원하는 옷 고르겠슴다！",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AB004",
@@ -5845,9 +5845,9 @@
    ],
    "source_codes": "012A 001A 0124 00D6 07C1 0944",
    "source": "ハードの設定",
-   "ko": "하드 설정",
+   "ko": "기기 설정",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AB5F4",
@@ -5973,9 +5973,9 @@
    ],
    "source_codes": "001B FFFD FFFD 012A 001A 0124 00D6 07C1 0944 FFFD FFFD 001B",
    "source": "―  ハードの設定  ―",
-   "ko": "―   하드 설정  ―",
+   "ko": "―   기기 설정  ―",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AB6AC",
@@ -6824,9 +6824,9 @@
    ],
    "source_codes": "07C1 0944 00FA 06B1 0376 027B 00BF 00E6 00C1 0001 FFFE 00F0 00F5 00BF 00AC 00CF 00C1 00B3 0007",
    "source": "設定を初期化します。\nよろしいですか？",
-   "ko": "설정을 초기화해요.\n계속할까요？",
+   "ko": "설정을 초기화합니다\n괜찮습니까？",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0AB9B4",
@@ -6905,9 +6905,9 @@
    ],
    "source_codes": "0385 0D23 00C3 00C2 00D3 010D 001A 013B 00D3 0C2B 00F3",
    "source": "記録せずにゲームに戻る",
-   "ko": "저장없이 게임으로",
+   "ko": "저장 없이 게임으로",
    "state": "needs_review",
-   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28"
+   "note": "agent first draft 2026-09-28; 2차 검수 반영 2026-09-28; 2차 검수 반영 2026-09-28"
   },
   {
    "id": "T0ABA44",

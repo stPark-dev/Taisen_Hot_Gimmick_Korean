@@ -214,9 +214,9 @@
    "template": "080C80",
    "style": "bubble",
    "source": "勝負よ!\nOLリーチ!",
-   "ko": "승부예요!\nOL 리치!",
+   "ko": "승부해요!\nOL 리치!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic; 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G080C90",
@@ -376,9 +376,9 @@
    "template": "080DA0",
    "style": "bubble",
    "source": "くらえ、\nサディスティック・リーチ!",
-   "ko": "받아라,\n새디스틱 리치!",
+   "ko": "받아라,\n사디스틱 리치!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; source transcribed from rendered graphic"
+   "note": "agent draft 2026-09-28; source transcribed from rendered graphic; 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G080DB0",
@@ -727,9 +727,9 @@
    "template": "081600",
    "style": "outline",
    "source": "おやびんの負けっス!\nムチャ残念っス!",
-   "ko": "두목 패배임다!\n엄청 아쉬움다!",
+   "ko": "두목 패배임다!\n엄청 아쉽슴다!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081608",
@@ -808,9 +808,9 @@
    "template": "081658",
    "style": "outline",
    "source": "どうした?\nもう諦めるのか、日本人!",
-   "ko": "왜 그래?\n벌써 포기냐,일본인!",
+   "ko": "왜 그래?\n벌써 포기냐, 일본인!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081660",
@@ -826,9 +826,9 @@
    "template": "081668",
    "style": "outline",
    "source": "やめちゃうの?\nねぇ、もっと遊ぼうよ!",
-   "ko": "그만둘래?\n있잖아,더 놀자!",
+   "ko": "그만둘래?\n있잖아, 더 놀자!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081670",
@@ -844,18 +844,18 @@
    "template": "081678+081680",
    "style": "outline",
    "source": "あら、もうおしまい? 最低ね。",
-   "ko": "어머,벌써 끝? 한심해.",
+   "ko": "어머, 벌써 끝? 최악이네요.",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081688",
    "template": "081688",
    "style": "outline",
    "source": "勝負は時の運。\nツイてなかったね!",
-   "ko": "승부는 운!\n운이 없었네.",
+   "ko": "승부는 운이야.\n재수가 없었네!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081690",
@@ -961,9 +961,9 @@
    "template": "081700",
    "style": "outline",
    "source": "ヘイ、カモンカモン!\nもっと麻雀で、\n漢の心を通わすでゴザるよ!",
-   "ko": "헤이,컴온,컴온!\n더 마작으로\n사나이 마음을 나누세!",
+   "ko": "헤이, 컴온 컴온!\n마작으로 더욱\n사나이의 정을 나누겠소!",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical)"
+   "note": "agent draft 2026-09-28; continue-screen line (reuses dialogue wording where identical); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081708",
@@ -1177,9 +1177,9 @@
    "template": "S:00884:16x2:00",
    "style": "mono_white",
    "source": "これらの円が楕円に見える場合は、\nモニタの調節をしてください。",
-   "ko": "이 원들이 타원으로 보이면,\n모니터를 조절해 주세요.",
+   "ko": "이 원들이 타원으로 보이면,\n모니터를 조정해 주세요.",
    "state": "needs_review",
-   "note": "agent draft 2026-09-28; boot monitor-test screen, sprite 0x884 16x2 (no template)"
+   "note": "agent draft 2026-09-28; boot monitor-test screen, sprite 0x884 16x2 (no template); 3차 검수 반영 2026-10-01"
   },
   {
    "id": "G081D08",
@@ -1362,42 +1362,6 @@
    "note": "agent draft 2026-09-28; linked 2-cabinet versus mode — palette/runtime not verifiable in single-cabinet MAME"
   },
   {
-   "id": "G081778",
-   "template": "081778",
-   "style": "credit",
-   "source": "制作 丹羽 潤一\n監督 中村 晋介\n企画/脚本\n　山田 啓史\nデザイン/演出\n　小川 兵衛",
-   "ko": "제작  니와 준이치\n감독  나카무라 신스케\n기획/각본\n    야마다 케이시\n디자인/연출\n    오가와 효에",
-   "state": "needs_human_review",
-   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
-  },
-  {
-   "id": "G0817A0",
-   "template": "0817A0",
-   "style": "credit",
-   "source": "プログラム\n　斉藤 詩織\n　兄筋 太郎\n　吉田 和史\nサウンド\n　泉谷 雅樹\n　谷岡 久美",
-   "ko": "프로그램\n    사이토 시오리\n    아니스지 타로\n    요시다 카즈시\n사운드\n    이즈미야 마사키\n    타니오카 쿠미",
-   "state": "needs_human_review",
-   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
-  },
-  {
-   "id": "G0817A8",
-   "template": "0817A8",
-   "style": "credit",
-   "source": "キャラクターデザイン\n　司 淳\nゲストキャラクターデザイン\n　寺田 克也\n原稿おとした人\n　中村 博文",
-   "ko": "캐릭터 디자인\n    츠카사 준\n게스트 캐릭터 디자인\n    테라다 카츠야\n원고 펑크 낸 사람\n    나카무라 히로후미",
-   "state": "needs_human_review",
-   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
-  },
-  {
-   "id": "G0817C0",
-   "template": "0817C0",
-   "style": "credit",
-   "source": "制作/著作\n1997 彩京",
-   "ko": "제작/저작\n1997 사이쿄",
-   "state": "needs_human_review",
-   "note": "agent draft 2026-09-28; ending staff credit — name readings unverified; ending palette not observed at runtime"
-  },
-  {
    "id": "G0807C8",
    "template": "0807C8",
    "style": "label_small",
@@ -1567,6 +1531,213 @@
    "ko": "근○버스터",
    "state": "needs_review",
    "note": "2026-10-01; versus mode (one board, 1P vs 2P) — found by runtime play"
+  },
+  {
+   "id": "G0843D0",
+   "template": "0843D0",
+   "style": "brush",
+   "source": "逆水平",
+   "ko": "역수평",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0843D8",
+   "template": "0843D8",
+   "style": "brush",
+   "source": "ドロップキック",
+   "ko": "드롭킥",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0843E0",
+   "template": "0843E0",
+   "style": "brush",
+   "source": "延髄斬り",
+   "ko": "연수베기",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0843E8",
+   "template": "0843E8",
+   "style": "brush",
+   "source": "頭突き",
+   "ko": "박치기",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0843F0",
+   "template": "0843F0+0843F8+084400",
+   "style": "brush",
+   "source": "ナックルパート",
+   "ko": "너클 파트",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084408",
+   "template": "084408",
+   "style": "brush",
+   "source": "鉄ちゃんキック",
+   "ko": "데츠짱 킥",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084410",
+   "template": "084410",
+   "style": "brush",
+   "source": "ヒップアタック",
+   "ko": "힙 어택",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084418",
+   "template": "084418",
+   "style": "brush",
+   "source": "16文キック",
+   "ko": "16문 킥",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084420",
+   "template": "084420+084428",
+   "style": "brush",
+   "source": "ハリセン",
+   "ko": "하리센",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084430",
+   "template": "084430",
+   "style": "brush",
+   "source": "イス攻撃",
+   "ko": "의자 공격",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084780",
+   "template": "084780",
+   "style": "brush",
+   "source": "ニールキック",
+   "ko": "닐 킥",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084788",
+   "template": "084788+084790+084798",
+   "style": "brush",
+   "source": "パイルドライバー",
+   "ko": "파일 드라이버",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847A0",
+   "template": "0847A0+0847A8",
+   "style": "brush",
+   "source": "○固め",
+   "ko": "○ 굳히기",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847B0",
+   "template": "0847B0",
+   "style": "brush",
+   "source": "ラリアット",
+   "ko": "래리어트",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847B8",
+   "template": "0847B8+0847C0+0847C8",
+   "style": "brush_top",
+   "source": "ロメロスペシャル",
+   "ko": "로메로 스페셜",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847D0",
+   "template": "0847D0+0847D8",
+   "style": "brush",
+   "source": "モンキーフリップ",
+   "ko": "몽키 플립",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847E0",
+   "template": "0847E0",
+   "style": "brush",
+   "source": "ジャーマンスープレックス",
+   "ko": "저먼 수플렉스",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847E8",
+   "template": "0847E8",
+   "style": "brush",
+   "source": "パワーボム",
+   "ko": "파워 밤",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847F0",
+   "template": "0847F0",
+   "style": "brush",
+   "source": "電気アンマ",
+   "ko": "전기 안마",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G0847F8",
+   "template": "0847F8",
+   "style": "brush",
+   "source": "アトミックドロップ",
+   "ko": "애토믹 드롭",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084800",
+   "template": "084800",
+   "style": "brush",
+   "source": "バロスペシャル",
+   "ko": "바로 스페셜",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G084808",
+   "template": "084808",
+   "style": "brush",
+   "source": "ドラゴンスクリュー",
+   "ko": "드래곤 스크류",
+   "state": "needs_review",
+   "note": "2026-10-01; versus-mode wrestling move (script blocks 0x9C6B4-0xA3324); 0847A0 first kanji illegible in source"
+  },
+  {
+   "id": "G080FF8",
+   "template": "080FF8",
+   "style": "bubble",
+   "source": "連打開始っス!",
+   "ko": "연타 시작임다!",
+   "state": "needs_review",
+   "note": "2026-10-01; single-player copy of the renda bubble (versus copy is 081060)"
   }
  ]
 }
