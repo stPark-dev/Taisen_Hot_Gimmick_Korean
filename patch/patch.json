@@ -1,0 +1,47 @@
+{
+ "format": "BPS",
+ "game": "hotgmck",
+ "patch_version": "1.0.0",
+ "distribution": true,
+ "files": {
+  "1-u22.bin": {
+   "source_sha1": "6ea7bd18bcf6224ed9b0480bb59c684f13b71d8a",
+   "target_sha1": "3bebe69f1616d39f378f04fe0997c9a8a13e8800"
+  },
+  "2-u23.bin": {
+   "source_sha1": "bb4f57a6adffc6336fc572a4ff1f5dfc284ee4fb",
+   "target_sha1": "abf5a957173f9ac9d6706fed0dc838d87b014304"
+  },
+  "0l.bin": {
+   "source_sha1": "968de0cd275784cf082df172b7f205861a8fbae4",
+   "target_sha1": "04019f4e80a5b37528a7c930674279958952f0fd"
+  },
+  "0h.bin": {
+   "source_sha1": "8e4a026f20b7ba035eb78713d64bfcb611c90640",
+   "target_sha1": "619e3a7d27d77005568c07c8526575c10952ecdb"
+  },
+  "1l.bin": {
+   "source_sha1": "c0fe45d7618653b089ec293e7661da682b77534d",
+   "target_sha1": "715c1b26405b08e9675aca62a88a4d6ca960f801"
+  },
+  "1h.bin": {
+   "source_sha1": "4d589545765f55aaddb05f484fbf6248af3e237b",
+   "target_sha1": "ba59aca8c39a2667e5a6529976b6bd6f18557439"
+  },
+  "2l.bin": {
+   "source_sha1": "0722d89865cc2c9acda899bacb2787481c16c01a",
+   "target_sha1": "c4e5728d45b77079ccae5a9a3cb6e00328cc0c92"
+  },
+  "2h.bin": {
+   "source_sha1": "c70f4b0ff3997bf94a89cd613a2877f062014393",
+   "target_sha1": "63ba95b4691e567bc43c163d7feb723f80067867"
+  }
+ },
+ "unchanged": [
+  "prog.bin",
+  "3l.bin",
+  "3h.bin",
+  "snd0.bin",
+  "snd1.bin"
+ ]
+}
